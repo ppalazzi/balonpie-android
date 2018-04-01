@@ -1,21 +1,22 @@
 package com.palazzisoft.ligabalonpie.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.search.SearchAuth;
 import com.palazzisoft.ligabalonpie.dto.Participante;
+import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,12 +25,15 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
-import static com.palazzisoft.ligabalonpie.activity.R.id.email;
+import static com.palazzisoft.ligabalonpie.activity.MainActivity.PREFERENCE;
 
 public class LoginActivity extends AppCompatActivity {
 
     private static final int REQUEST_SIGNUP = 0;
+    private static final String TAG = "LoginActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,15 +74,40 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Ingresando...");
         progressDialog.show();
 
+        Button button = (Button) findViewById(R.id.btn_login);
+        button.setEnabled(false);
+
+        try {
+            executeTask();
+        } catch (ExecutionException  | InterruptedException e) {
+            Log.e(TAG, "Error al ingresar Participante", e);
+        }
+    }
+
+    private void executeTask() throws ExecutionException, InterruptedException {
         EditText editText  = (EditText) findViewById(R.id.input_email);
         EditText passText = (EditText) findViewById(R.id.input_password);
-
         String email = editText.getText().toString();
         String pass  = passText.getText().toString();
 
-        Button button = (Button) findViewById(R.id.btn_login);
-        button.setEnabled(false);
-        new HttpRequestTask(email,pass).execute();
+        HttpRequestTask requestask = new HttpRequestTask(email,pass);
+        requestask.execute();
+
+        if (requestask.get() != null) {
+            Log.i(TAG, "Logueando");
+            Participante participante = requestask.get();
+            saveParticipantePreferece(participante);
+            Intent intent = new Intent(getApplicationContext(), DashboardOptions.class);
+            startActivityForResult(intent, REQUEST_SIGNUP);
+        }
+        else {
+            Log.i(TAG, "Error al loguear al mono");
+        }
+    }
+
+    private void saveParticipantePreferece(Participante participante) {
+        ParticipantePreference preferences = new ParticipantePreference(this.getApplicationContext());
+        preferences.saveParticipante(participante);
     }
 
     private void onLoginFailed() {
@@ -131,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Participante doInBackground(Void... params) {
-            final String url = "http://192.168.0.17:8080/login/{email}/{password}";
+            final String url = getResources().getString(R.string.baseUrl).concat("login/{email}/{password}");
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
@@ -148,11 +177,5 @@ public class LoginActivity extends AppCompatActivity {
 
             return response.getBody();
         }
-
-        @Override
-        protected void onPostExecute(Participante participante) {
-            Toast.makeText(getBaseContext(), "Muy bien", Toast.LENGTH_LONG).show();
-        }
-
     }
 }

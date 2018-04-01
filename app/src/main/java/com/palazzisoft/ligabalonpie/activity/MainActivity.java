@@ -2,54 +2,36 @@ package com.palazzisoft.ligabalonpie.activity;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.palazzisoft.ligabalonpie.dto.Participante;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+    public static final String PREFERENCE = "ConfigFile";
     private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        ParticipantePreference preferences = new ParticipantePreference(getApplicationContext());
+        Participante participante = preferences.getParticipante();
 
-        /*
-        Button button = (Button) findViewById(R.id.btn_login);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new HttpRequestTask().execute();
-            }
-        });
-        */
+        Intent intent = new Intent(this, LoginActivity.class);
+        if (participante.getId() != null) {
+            intent = new Intent(this, DashboardOptions.class);
+        }
+
+        startActivity(intent);
     }
 
     /**

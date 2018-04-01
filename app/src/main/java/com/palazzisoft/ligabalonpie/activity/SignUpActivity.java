@@ -3,7 +3,9 @@ package com.palazzisoft.ligabalonpie.activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.palazzisoft.ligabalonpie.dto.Participante;
+import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +30,7 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import static android.webkit.ConsoleMessage.MessageLevel.LOG;
+import static com.palazzisoft.ligabalonpie.activity.MainActivity.PREFERENCE;
 import static com.palazzisoft.ligabalonpie.activity.R.id.btn_signup;
 
 
@@ -119,6 +123,8 @@ public class SignUpActivity extends AppCompatActivity {
         requestask.execute();
 
         if (requestask.get() != null) {
+            Participante participante = requestask.get();
+            saveParticipantePreferece(participante);
             Log.i(TAG, "Participante creado correctamente");
             goToDashboard();
         } else {
@@ -127,7 +133,13 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void goToDashboard() {
- 
+        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+        startActivityForResult(intent, REQUEST_SIGNUP);
+    }
+
+    private void saveParticipantePreferece(Participante participante) {
+        ParticipantePreference preference = new ParticipantePreference(getApplicationContext());
+        preference.saveParticipante(participante);
     }
 
     private void onSignupFailed() {
@@ -253,7 +265,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         @Override
         protected Participante doInBackground(Void... params) {
-            final String url = "http://192.168.0.17:8080/crearParticipante";
+            final String url = "http://192.168.0.18:8080/crearParticipante";
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 

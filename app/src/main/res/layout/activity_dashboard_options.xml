@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" android:layout_weight="0.9" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.2"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/profileButtonId"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.4"
+            android:text="@string/mi_perfil"
+            android:drawableTop="@drawable/profile"/>
+
+        <Button
+            android:id="@+id/createTournamentButtonId"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.4"
+            android:text="@string/crear_torneo"
+            android:drawableTop="@drawable/crear_torneo"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/myTournamentButtonId"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="@string/mis_torneos"
+            android:drawableTop="@drawable/mis_torneos"/>
+
+        <Button
+            android:id="@+id/logoutButtonId"
+            android:layout_width="0px"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="@string/log_out"
+            android:drawableTop="@drawable/log_out"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.2"
+        android:orientation="horizontal" />
+
+</LinearLayout>

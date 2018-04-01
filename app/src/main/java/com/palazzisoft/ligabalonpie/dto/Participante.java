@@ -1,19 +1,30 @@
 package com.palazzisoft.ligabalonpie.dto;
 
-import java.util.Date;
+import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by pablo on 05/03/17.
- */
+import java.util.Date;
 
 public class Participante {
 
+    @SerializedName("id")
     private Integer id;
+
+    @SerializedName("nombre")
     private String nombre;
+
+    @SerializedName("apellido")
     private String apellido;
+
+    @SerializedName("email")
     private String email;
+
+    @SerializedName("fechaNacimiento")
     private Date fechaNacimiento;
+
+    @SerializedName("estado")
     private Byte estado;
+
+    @SerializedName("password")
     private String password;
 
     public Integer getId() {
