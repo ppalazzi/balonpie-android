@@ -37,7 +37,9 @@
             android:label="@string/title_activity_dashboard" />
         <activity android:name=".Profile" />
         <activity android:name=".DashboardOptions" />
-        <activity android:name=".TorneoList"></activity>
+        <activity android:name=".TorneoList" />
+        <activity android:name=".CrearTorneoActivity" />
+        <activity android:name=".ElegirEquipoActivity"></activity>
     </application>
 
 </manifest>

@@ -34,7 +34,7 @@ public class DashboardOptions extends AppCompatActivity {
         this.profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToMyProfile(Profile.class);
+                goToMyView(Profile.class);
             }
         });
 
@@ -44,9 +44,23 @@ public class DashboardOptions extends AppCompatActivity {
                 logoutAndBackToLogin();
             }
         });
+
+        this.myTournamentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMyView(TorneoList.class);
+            }
+        });
+
+        this.createTournamentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMyView(CrearTorneoActivity.class);
+            }
+        });
     }
 
-    private void goToMyProfile(Class clazz) {
+    private void goToMyView(Class clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
     }

@@ -24,7 +24,7 @@ public class ProfileService extends AsyncTask<Void, Void, Participante> {
     protected Participante doInBackground(Void... params) {
         Log.i(TAG,  "Actualizando Participante con id " + participante.getId());
 
-        final String url = "http://192.168.0.18:8080/actualizarParticipante";
+        final String url = "http://192.168.0.241:8080/actualizarParticipante";
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
