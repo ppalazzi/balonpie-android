@@ -265,7 +265,8 @@ public class SignUpActivity extends AppCompatActivity {
 
         @Override
         protected Participante doInBackground(Void... params) {
-            final String url = "http://192.168.0.241:8080/crearParticipante";
+            final String url = getResources().getString(R.string.baseUrl).concat("crearParticipante");
+
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 

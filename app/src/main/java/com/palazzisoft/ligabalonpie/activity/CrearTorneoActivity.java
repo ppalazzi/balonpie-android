@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.palazzisoft.ligabalonpie.dto.Equipo;
+import com.palazzisoft.ligabalonpie.dto.Participante;
 import com.palazzisoft.ligabalonpie.dto.Torneo;
+import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
 import com.palazzisoft.ligabalonpie.preference.TorneoPreference;
 import com.palazzisoft.ligabalonpie.service.ValidarTorneoService;
 
@@ -21,7 +23,6 @@ import static org.springframework.util.StringUtils.hasText;
 public class CrearTorneoActivity extends AppCompatActivity {
 
     private static final String TAG = "CrearTorneoActivity";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +40,21 @@ public class CrearTorneoActivity extends AppCompatActivity {
 
     private void goToElegirEquipo() {
         EditText nombreEquipo = (EditText) findViewById(R.id.nombre_equipo);
-        EditText nombreTorneo  = (EditText) findViewById(R.id.nombre_torneo);
-
+        EditText nombreTorneo = (EditText) findViewById(R.id.nombre_torneo);
 
         validarNombreDeTorneo(nombreTorneo);
         validarNombreDeEquipo(nombreEquipo);
 
+        ParticipantePreference participantePreference = new ParticipantePreference(getApplicationContext());
+        Participante participante = participantePreference.getParticipante();
+
         Torneo torneo = new Torneo();
         torneo.setDescripcion(nombreTorneo.getText().toString());
+        torneo.setParticipante(participante);
 
         Equipo equipo = new Equipo();
-        equipo.setName(nombreEquipo.getText().toString());
+        equipo.setParticipante(participante);
+        equipo.setNombre(nombreEquipo.getText().toString());
         torneo.setEquipos(new ArrayList<Equipo>());
         torneo.getEquipos().add(equipo);
 
@@ -67,18 +72,17 @@ public class CrearTorneoActivity extends AppCompatActivity {
     }
 
     private void validarNombreDeTorneo(EditText editText) {
-        ValidarTorneoService validarTorneoService = new ValidarTorneoService(editText.getText().toString());
+        ValidarTorneoService validarTorneoService = new ValidarTorneoService(editText.getText().toString(), getResources());
         validarTorneoService.execute();
 
         try {
             Boolean isValidName = validarTorneoService.get();
             if (isValidName == null || isValidName == FALSE) {
-                if(isValidName) {
+                if (isValidName) {
                     editText.setError("El nombre el torneo ya existe");
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e(TAG, "Error al Validar nombre del Torneo");
         }
     }

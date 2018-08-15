@@ -54,7 +54,7 @@ public class MisTorneosFragment extends Fragment {
         ParticipantePreference preferences = new ParticipantePreference(getContext().getApplicationContext());
         Participante participante = preferences.getParticipante();
 
-        TorneosService service = new TorneosService(participante.getId());
+        TorneosService service = new TorneosService(participante.getId(), getResources());
         service.execute();
 
         List torneos = service.get();

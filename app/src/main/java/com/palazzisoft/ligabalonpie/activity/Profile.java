@@ -101,7 +101,7 @@ public class Profile extends AppCompatActivity {
     private void success() {
         try {
             Participante participante = prepareParticipanteToBePersisted();
-            ProfileService service = new ProfileService(participante);
+            ProfileService service = new ProfileService(participante, getResources());
             service.execute();
 
             Participante participanteACtualizado = callService(service);

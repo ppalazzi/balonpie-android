@@ -42,6 +42,20 @@
     <string name="nombre_torneo">Nombre del Torneo</string>
     <string name="nombre_equipo">Nombre del Equipos</string>
     <string name="seleccionar_jugadores">Seleccionar Jugadores</string>
+    <string name="presupuesto_vigente">Presupuesto Vigente</string>
+
+    <!-- Elegir Jugadores Para torneo -->
+    <string name="label_arquero">Arquero Titular</string>
+    <string name="defensa_1_list_id">Defensa 1 Posición</string>
+    <string name="defensa_2_list_id">Defensa 2 Posición</string>
+    <string name="defensa_3_list_id">Defensa 3 Posición</string>
+    <string name="defensa_4_list_id">Defensa 4 Posición</string>
+    <string name="mediocampo_1_list_id">Mediocampo 1 Posición</string>
+    <string name="mediocampo_2_list_id">Mediocampo 2 Posición</string>
+    <string name="mediocampo_3_list_id">Mediocampo 3 Posición</string>
+    <string name="atacante_1_list_id">Atacante 1 Posición</string>
+    <string name="atacante_2_list_id">Atacante 2 Posición</string>
+    <string name="atacante_3_list_id">Atacante 3 Posición</string>
 
     <!-- Hints -->
     <string name="hint_password">Debe contener hasta 8 caracteres</string>

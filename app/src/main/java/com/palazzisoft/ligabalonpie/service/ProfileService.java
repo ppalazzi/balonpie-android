@@ -1,8 +1,10 @@
 package com.palazzisoft.ligabalonpie.service;
 
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.palazzisoft.ligabalonpie.activity.R;
 import com.palazzisoft.ligabalonpie.dto.Participante;
 
 import org.springframework.http.HttpStatus;
@@ -15,16 +17,18 @@ public class ProfileService extends AsyncTask<Void, Void, Participante> {
     private static final String TAG = "ProfileService";
 
     private final Participante participante;
+    private final Resources resources;
 
-    public ProfileService(final Participante participante) {
+    public ProfileService(final Participante participante, final Resources resources) {
         this.participante = participante;
+        this.resources = resources;
     }
 
     @Override
     protected Participante doInBackground(Void... params) {
         Log.i(TAG,  "Actualizando Participante con id " + participante.getId());
 
-        final String url = "http://192.168.0.241:8080/actualizarParticipante";
+        final String url = resources.getString(R.string.baseUrl).concat("actualizarParticipante");
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
