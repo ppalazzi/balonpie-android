@@ -2,6 +2,9 @@ package com.palazzisoft.ligabalonpie.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.palazzisoft.ligabalonpie.dto.Participante;
 import com.palazzisoft.ligabalonpie.fragment.MisTorneosFragment;
@@ -21,10 +24,5 @@ public class TorneoList extends AppCompatActivity {
             fragment = MisTorneosFragment.getInstance();
             getSupportFragmentManager().beginTransaction().add(R.id.torneos_container, fragment).commit();
         }
-    }
-
-    private Participante getParticipanteFromSession() {
-        ParticipantePreference preference = new ParticipantePreference(getApplicationContext());
-        return preference.getParticipante();
     }
 }

@@ -39,7 +39,8 @@
         <activity android:name=".DashboardOptions" />
         <activity android:name=".TorneoList" />
         <activity android:name=".CrearTorneoActivity" />
-        <activity android:name=".ElegirEquipoActivity"></activity>
+        <activity android:name=".ElegirEquipoActivity" />
+        <activity android:name=".DetallesTorneo"></activity>
     </application>
 
 </manifest>
