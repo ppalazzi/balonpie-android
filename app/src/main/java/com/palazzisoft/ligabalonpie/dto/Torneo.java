@@ -12,6 +12,7 @@ public class Torneo {
     private String estado;
     private List<Equipo> equipos;
     private Participante participante;
+    private Fixture fixture;
 
     public Integer getId() {
         return id;
@@ -51,6 +52,14 @@ public class Torneo {
 
     public void setParticipante(Participante participante) {
         this.participante = participante;
+    }
+
+    public Fixture getFixture() {
+        return fixture;
+    }
+
+    public void setFixture(Fixture fixture) {
+        this.fixture = fixture;
     }
 
     @Override

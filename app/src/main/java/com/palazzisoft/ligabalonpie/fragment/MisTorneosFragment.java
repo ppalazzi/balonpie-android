@@ -79,7 +79,7 @@ public class MisTorneosFragment extends Fragment {
                 LinearLayout linearLayoutParent = (LinearLayout) view;
                 LinearLayout linearLayoutChild = (LinearLayout) linearLayoutParent.getChildAt(0);
 
-                TextView textView = (TextView) linearLayoutChild.getChildAt(1);
+                TextView textView = (TextView) linearLayoutChild.getChildAt(0);
                 textView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -101,10 +101,10 @@ public class MisTorneosFragment extends Fragment {
     }
 
     private void clickOnTorneoDetails(int position) {
-        Torneo torneoSelecte = (Torneo) torneos.get(position);
+        Torneo torneoSelected = (Torneo) torneos.get(position);
 
         Intent intent = new Intent(getActivity().getApplicationContext(), DetallesTorneo.class);
-        intent.putExtra("torneoId", torneoSelecte.getId());
+        intent.putExtra("torneoId", torneoSelected.getId());
         startActivity(intent);
     }
 

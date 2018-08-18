@@ -57,6 +57,9 @@
     <string name="atacante_2_list_id">Atacante 2 Posición</string>
     <string name="atacante_3_list_id">Atacante 3 Posición</string>
 
+    <!-- Detalle Torneo -->
+    <string name="comenzar_fecha">Iniciar Torneo</string>
+    
     <!-- Hints -->
     <string name="hint_password">Debe contener hasta 8 caracteres</string>
 
