@@ -1,5 +1,7 @@
 package com.palazzisoft.ligabalonpie.activity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.palazzisoft.ligabalonpie.dto.Fixture;
 import com.palazzisoft.ligabalonpie.dto.Torneo;
+import com.palazzisoft.ligabalonpie.fragment.FechasFragment;
 import com.palazzisoft.ligabalonpie.preference.TorneoPreference;
 import com.palazzisoft.ligabalonpie.service.ComenzarTorneoService;
 import com.palazzisoft.ligabalonpie.service.DetalleTorneoService;
@@ -26,6 +29,9 @@ public class DetallesTorneo extends AppCompatActivity {
     private LinearLayout fechaComenzada;
     private TextView nombreTorneoSinComenzar;
     private Button iniciarTorneoButton;
+
+    private TextView detalle_torneo_nombre_torneo;
+    private TextView numero_fecha;
 
     private int torneoId;
 
@@ -53,6 +59,8 @@ public class DetallesTorneo extends AppCompatActivity {
                 iniciarTorneo();
             }
         });
+        detalle_torneo_nombre_torneo = (TextView) findViewById(R.id.detalle_torneo_nombre_torneo);
+        numero_fecha = (TextView) findViewById(R.id.numero_fecha);
 
         DetalleTorneoService service = new DetalleTorneoService(getResources(), Integer.valueOf(torneoId));
         service.execute();
@@ -72,6 +80,7 @@ public class DetallesTorneo extends AppCompatActivity {
                     // Torneo en juego
                     fechaNueva.setVisibility(LinearLayout.GONE);
                     fechaComenzada.setVisibility(LinearLayout.VISIBLE);
+                    cargarDetallesDeTorneoComenzado(torneo);
                 }
             }else {
                 showError();
@@ -82,8 +91,35 @@ public class DetallesTorneo extends AppCompatActivity {
         }
     }
 
+    private  void cargarDetallesDeTorneoComenzado(Torneo torneo) {
+        this.detalle_torneo_nombre_torneo.setText(torneo.getDescripcion());
+        this.numero_fecha.setText(torneo.getFixture().getFechas().get(0).getNumero().toString());
+        cargarDatosFecha(torneo);
+    }
+
     private void cargarDatosDeTorneoNuevo(Torneo torneo) {
         this.nombreTorneoSinComenzar.setText(torneo.getDescripcion());
+    }
+
+    private void cargarDatosFecha(Torneo torneo) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        FechasFragment fechasFragment = new FechasFragment();
+        fragmentTransaction.add(R.id.fechas_container, fechasFragment);
+
+        if (torneo.getFixture().getFechas() != null) {
+            Bundle data = new Bundle();
+            data.putSerializable("fecha", torneo.getFixture().getFechas().get(0));
+            fechasFragment.setArguments(data);
+            fragmentTransaction.commit();
+        }
+        else {
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "El torneo no tiene fechas creadas", LENGTH_SHORT);
+            toast1.show();
+        }
     }
 
     private void refreshView() {

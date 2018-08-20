@@ -59,7 +59,10 @@
 
     <!-- Detalle Torneo -->
     <string name="comenzar_fecha">Iniciar Torneo</string>
-    
+    <string name="numero_fecha">Número Fecha</string>
+    <string name="cambiar_jugador">Cambiar Jugador</string>
+    <string name="jugar_fecha">Jugar Fecha</string>
+
     <!-- Hints -->
     <string name="hint_password">Debe contener hasta 8 caracteres</string>
 
@@ -80,4 +83,7 @@
     <string name="crear_torneo">Crear Torneo</string>
     <string name="mis_torneos">Mis Torneos</string>
     <string name="log_out">Salir</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

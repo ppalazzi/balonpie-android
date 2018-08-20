@@ -1,0 +1,121 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.palazzisoft.ligabalonpie.fragment.FechasFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Primera fecha -->
+        <LinearLayout
+            android:id="@+id/fecha_nueva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="24dp"
+            android:paddingTop="0dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/golLocValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/localEquipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/vs1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:text="VS"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/golVisValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/visitanteEquipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <!-- segunda fecha -->
+        <LinearLayout
+            android:id="@+id/fecha_nueva2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="24dp"
+            android:paddingTop="0dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/golLocValue2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/localEquipo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/vs12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:text="VS"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/golVisValue2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/visitanteEquipo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
