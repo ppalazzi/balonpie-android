@@ -62,6 +62,9 @@
     <string name="numero_fecha">Número Fecha</string>
     <string name="cambiar_jugador">Cambiar Jugador</string>
     <string name="jugar_fecha">Jugar Fecha</string>
+    <string name="fecha_anterior">Fecha Previa</string>
+    <string name="fecha_siguiente">Fecha Siguiente</string>
+    <string name="fecha_ver_posiciones">Tabla de Posiciones</string>
 
     <!-- Hints -->
     <string name="hint_password">Debe contener hasta 8 caracteres</string>

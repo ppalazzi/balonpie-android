@@ -26,6 +26,21 @@ public class FechasFragment extends Fragment {
     private TextView golVisValue2;
     private TextView visitanteEquipo2;
 
+    private TextView golLocValue3;
+    private TextView localEquipo3;
+    private TextView golVisValue3;
+    private TextView visitanteEquipo3;
+
+    private TextView golLocValue4;
+    private TextView localEquipo4;
+    private TextView golVisValue4;
+    private TextView visitanteEquipo4;
+
+    private TextView golLocValue5;
+    private TextView localEquipo5;
+    private TextView golVisValue5;
+    private TextView visitanteEquipo5;
+
     public FechasFragment() {
 
     }
@@ -60,6 +75,21 @@ public class FechasFragment extends Fragment {
         this.localEquipo2 = (TextView) view.findViewById(R.id.localEquipo2);
         this.golVisValue2 = (TextView) view.findViewById(R.id.golVisValue2);
         this.visitanteEquipo2 = (TextView) view.findViewById(R.id.visitanteEquipo2);
+
+        this.golLocValue3 = (TextView) view.findViewById(R.id.golLocValue3);
+        this.localEquipo3 = (TextView) view.findViewById(R.id.localEquipo3);
+        this.golVisValue3 = (TextView) view.findViewById(R.id.golVisValue3);
+        this.visitanteEquipo3 = (TextView) view.findViewById(R.id.visitanteEquipo3);
+
+        this.golLocValue4 = (TextView) view.findViewById(R.id.golLocValue4);
+        this.localEquipo4 = (TextView) view.findViewById(R.id.localEquipo4);
+        this.golVisValue4 = (TextView) view.findViewById(R.id.golVisValue4);
+        this.visitanteEquipo4 = (TextView) view.findViewById(R.id.visitanteEquipo4);
+
+        this.golLocValue5 = (TextView) view.findViewById(R.id.golLocValue5);
+        this.localEquipo5 = (TextView) view.findViewById(R.id.localEquipo5);
+        this.golVisValue5 = (TextView) view.findViewById(R.id.golVisValue5);
+        this.visitanteEquipo5 = (TextView) view.findViewById(R.id.visitanteEquipo5);
     }
 
     private void loadData() {
@@ -67,16 +97,32 @@ public class FechasFragment extends Fragment {
         Partido partido2 = fecha.getPartidos().get(1);
         Partido partido3 = fecha.getPartidos().get(2);
         Partido partido4 = fecha.getPartidos().get(3);
+        Partido partido5 = fecha.getPartidos().get(4);
 
-        this.golLocValue.setText(partido1.getGolesLocal().toString());
+        this.golLocValue.setText(partido1.mostrarGolesLocal());
         this.localEquipo.setText(partido1.getLocal().getNombre());
-        this.golVisValue.setText(partido1.getGolesVisitante().toString());
+        this.golVisValue.setText(partido1.mostrarGolesVisitante());
         this.visitanteEquipo.setText(partido1.getVisitante().getNombre());
 
-        this.golLocValue2.setText(partido2.getGolesLocal().toString());
+        this.golLocValue2.setText(partido2.mostrarGolesLocal());
         this.localEquipo2.setText(partido2.getLocal().getNombre());
-        this.golVisValue2.setText(partido2.getGolesVisitante().toString());
+        this.golVisValue2.setText(partido2.mostrarGolesVisitante());
         this.visitanteEquipo2.setText(partido2.getVisitante().getNombre());
+
+        this.golLocValue3.setText(partido3.mostrarGolesLocal());
+        this.localEquipo3.setText(partido3.getLocal().getNombre());
+        this.golVisValue3.setText(partido3.mostrarGolesVisitante());
+        this.visitanteEquipo3.setText(partido3.getVisitante().getNombre());
+
+        this.golLocValue4.setText(partido4.mostrarGolesLocal());
+        this.localEquipo4.setText(partido4.getLocal().getNombre());
+        this.golVisValue4.setText(partido4.mostrarGolesVisitante());
+        this.visitanteEquipo4.setText(partido4.getVisitante().getNombre());
+
+        this.golLocValue5.setText(partido5.mostrarGolesLocal());
+        this.localEquipo5.setText(partido5.getLocal().getNombre());
+        this.golVisValue5.setText(partido5.mostrarGolesVisitante());
+        this.visitanteEquipo5.setText(partido5.getVisitante().getNombre());
     }
 
     @Override
@@ -88,4 +134,6 @@ public class FechasFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
+
 }

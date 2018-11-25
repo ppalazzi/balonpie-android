@@ -3,6 +3,7 @@ package com.palazzisoft.ligabalonpie.activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,13 +13,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.palazzisoft.ligabalonpie.dto.Fecha;
 import com.palazzisoft.ligabalonpie.dto.Fixture;
 import com.palazzisoft.ligabalonpie.dto.Torneo;
+import com.palazzisoft.ligabalonpie.fragment.CambiarJugadorFragment;
 import com.palazzisoft.ligabalonpie.fragment.FechasFragment;
 import com.palazzisoft.ligabalonpie.preference.TorneoPreference;
 import com.palazzisoft.ligabalonpie.service.ComenzarTorneoService;
 import com.palazzisoft.ligabalonpie.service.DetalleTorneoService;
+import com.palazzisoft.ligabalonpie.service.JugarFechaService;
+import com.palazzisoft.ligabalonpie.service.PosicionesService;
 
+import java.util.List;
+import java.util.ListIterator;
+
+import static android.support.v7.widget.AppCompatDrawableManager.get;
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class DetallesTorneo extends AppCompatActivity {
@@ -33,7 +43,16 @@ public class DetallesTorneo extends AppCompatActivity {
     private TextView detalle_torneo_nombre_torneo;
     private TextView numero_fecha;
 
+    private Button botonSiguiente;
+    private Button botonAnterior;
+
+    private Button jugarFecha;
+    private Button cambiarJugador;
+    private Button tablaPosiciones;
+
     private int torneoId;
+    private Torneo torneo;
+    private int fechaActualIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +80,47 @@ public class DetallesTorneo extends AppCompatActivity {
         });
         detalle_torneo_nombre_torneo = (TextView) findViewById(R.id.detalle_torneo_nombre_torneo);
         numero_fecha = (TextView) findViewById(R.id.numero_fecha);
+        botonSiguiente = (Button) findViewById(R.id.btn_fecha_siguiente);
+        botonSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                siguienteFecha();
+            }
+        });
+        botonAnterior = (Button) findViewById(R.id.btn_fecha_anterior);
+        botonAnterior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                anteriorFecha();
+            }
+        });
+        jugarFecha = (Button) findViewById(R.id.btn_jugar);
+        jugarFecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jugarFecha();
+            }
+        });
+        cambiarJugador = (Button) findViewById(R.id.btn_cambiar_jugador);
+        cambiarJugador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cambiarJugador();
+            }
+        });
+        tablaPosiciones = (Button) findViewById(R.id.btn_posiciones);
+        tablaPosiciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verPosiciones();
+            }
+        });
 
         DetalleTorneoService service = new DetalleTorneoService(getResources(), Integer.valueOf(torneoId));
         service.execute();
 
         try {
-            Torneo torneo = service.get();
+            this.torneo = service.get();
             if (torneo != null) {
                 if (torneo.getFixture() == null) {
                     Log.i(TAG, "Fecha sin comenzar");
@@ -74,47 +128,88 @@ public class DetallesTorneo extends AppCompatActivity {
                     fechaNueva.setVisibility(LinearLayout.VISIBLE);
                     fechaComenzada.setVisibility(LinearLayout.GONE);
                     cargarDatosDeTorneoNuevo(torneo);
-                }
-                else {
+                } else {
                     Log.i(TAG, "Fecha comenzada");
                     // Torneo en juego
                     fechaNueva.setVisibility(LinearLayout.GONE);
                     fechaComenzada.setVisibility(LinearLayout.VISIBLE);
                     cargarDetallesDeTorneoComenzado(torneo);
                 }
-            }else {
+            } else {
                 showError();
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e(TAG, "Error al traer los detalles del Torneo");
         }
     }
 
-    private  void cargarDetallesDeTorneoComenzado(Torneo torneo) {
+    private void cargarDetallesDeTorneoComenzado(Torneo torneo) {
         this.detalle_torneo_nombre_torneo.setText(torneo.getDescripcion());
         this.numero_fecha.setText(torneo.getFixture().getFechas().get(0).getNumero().toString());
-        cargarDatosFecha(torneo);
+        cargarDatosFecha(torneo, true);
     }
 
     private void cargarDatosDeTorneoNuevo(Torneo torneo) {
         this.nombreTorneoSinComenzar.setText(torneo.getDescripcion());
     }
 
-    private void cargarDatosFecha(Torneo torneo) {
+    private void anteriorFecha() {
+        if (torneo != null && torneo.getFixture().getFechas() != null &&
+                fechaActualIndex > 0) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            FechasFragment fechasFragment = new FechasFragment();
+            fragmentTransaction.replace(R.id.fechas_container, fechasFragment);
+            fragmentTransaction.addToBackStack(null);
+
+            fechaActualIndex--;
+            Bundle data = new Bundle();
+            data.putSerializable("fecha", torneo.getFixture().getFechas().get(fechaActualIndex));
+            fechasFragment.setArguments(data);
+            fragmentTransaction.commit();
+            this.numero_fecha.setText(String.valueOf(fechaActualIndex + 1));
+        }
+    }
+
+    private void siguienteFecha() {
+        if (torneo != null && torneo.getFixture().getFechas() != null &&
+                torneo.getFixture().getFechas().size() > fechaActualIndex + 1) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            FechasFragment fechasFragment = new FechasFragment();
+            fragmentTransaction.replace(R.id.fechas_container, fechasFragment);
+            fragmentTransaction.addToBackStack(null);
+
+            fechaActualIndex++;
+            Bundle data = new Bundle();
+            data.putSerializable("fecha", torneo.getFixture().getFechas().get(fechaActualIndex));
+            fechasFragment.setArguments(data);
+            fragmentTransaction.commit();
+            this.numero_fecha.setText(String.valueOf(fechaActualIndex + 1));
+        }
+    }
+
+    private void cargarDatosFecha(Torneo torneo, boolean nuevo) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         FechasFragment fechasFragment = new FechasFragment();
-        fragmentTransaction.add(R.id.fechas_container, fechasFragment);
+
+        if (nuevo) {
+            fragmentTransaction.add(R.id.fechas_container, fechasFragment);
+        }
+        else {
+            fragmentTransaction.replace(R.id.fechas_container, fechasFragment);
+        }
 
         if (torneo.getFixture().getFechas() != null) {
             Bundle data = new Bundle();
-            data.putSerializable("fecha", torneo.getFixture().getFechas().get(0));
+            data.putSerializable("fecha", torneo.getFixture().getFechas().get(fechaActualIndex));
             fechasFragment.setArguments(data);
             fragmentTransaction.commit();
-        }
-        else {
+        } else {
             Toast toast1 =
                     Toast.makeText(getApplicationContext(),
                             "El torneo no tiene fechas creadas", LENGTH_SHORT);
@@ -132,6 +227,66 @@ public class DetallesTorneo extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void verPosiciones() {
+        if (torneo.getFixture() != null) {
+            PosicionesService service = new PosicionesService(this.getResources(), torneo.getFixture());
+            service.execute();
+
+            try {
+                List posicionesEquipo = service.get();
+            }
+            catch (Exception e) {
+                showError();
+            }
+        }
+    }
+
+    private void cambiarJugador() {
+        if (torneo.getFixture().getFechas().get(0).getPartidos().get(0).isJugado()) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            CambiarJugadorFragment cambiarJugadorFragment = new CambiarJugadorFragment();
+
+            fragmentTransaction.add(R.id.fechas_container, cambiarJugadorFragment);
+            fragmentTransaction.commit();
+        }
+    }
+
+    private void jugarFecha() {
+        if (torneo.getFixture().getFechas().get(fechaActualIndex).getPartidos().get(0).isJugado()) {
+            return;
+        }
+
+        JugarFechaService service = new
+                JugarFechaService(getResources(), torneo.getFixture().getFechas().get(fechaActualIndex));
+        service.execute();
+
+        try {
+            Fecha fecha = service.get();
+
+            ListIterator<Fecha> it = torneo.getFixture().getFechas().listIterator();
+            while (it.hasNext()) {
+                Fecha currentFecha = it.next();
+
+                if (fecha.getId().equals(currentFecha.getId())) {
+                    it.set(fecha);
+
+                    TorneoPreference torneoPreference = new TorneoPreference(getApplicationContext());
+                    torneoPreference.saveTorneo(torneo);
+                    cargarDatosFecha(torneo, false);
+                }
+            }
+
+            if (fecha == null) {
+                showError();
+            }
+        }
+        catch (Exception e) {
+            showError();
+        }
+    }
+
     private void iniciarTorneo() {
         ComenzarTorneoService service = new ComenzarTorneoService(getResources(), torneoId);
         service.execute();
@@ -144,12 +299,10 @@ public class DetallesTorneo extends AppCompatActivity {
                 torneoSelected.setFixture(fixture);
                 torneoPreference.saveTorneo(torneoSelected);
                 refreshView();
-            }
-            else {
+            } else {
                 showError();
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             showError();
         }
     }

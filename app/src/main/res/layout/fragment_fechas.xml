@@ -116,6 +116,168 @@
                 android:paddingRight="2sp"
                 android:textSize="17sp" />
         </LinearLayout>
+
+        <!-- tercera fecha -->
+        <LinearLayout
+            android:id="@+id/fecha_nueva3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="24dp"
+            android:paddingTop="0dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/golLocValue3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/localEquipo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/vs13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:text="VS"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/golVisValue3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/visitanteEquipo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <!-- cuarta fecha -->
+        <LinearLayout
+            android:id="@+id/fecha_nueva4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="24dp"
+            android:paddingTop="0dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/golLocValue4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/localEquipo4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/vs14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:text="VS"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/golVisValue4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/visitanteEquipo4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <!-- quinta fecha -->
+        <LinearLayout
+            android:id="@+id/fecha_nueva5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="24dp"
+            android:paddingTop="0dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/golLocValue5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/localEquipo5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/vs15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:text="VS"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/golVisValue5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/visitanteEquipo5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2sp"
+                android:paddingRight="2sp"
+                android:textSize="17sp" />
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

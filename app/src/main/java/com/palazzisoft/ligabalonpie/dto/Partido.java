@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Partido {
 
+    public static final String NO_JUGADO = "-";
     private Integer id;
     private Equipo local;
     private Equipo visitante;
@@ -58,5 +59,21 @@ public class Partido {
 
     public void setJugado(boolean jugado) {
         this.jugado = jugado;
+    }
+
+    public String mostrarGolesVisitante() {
+        if (isJugado()) {
+            return golesVisitante.toString();
+        }
+
+        return NO_JUGADO;
+    }
+
+    public String mostrarGolesLocal() {
+        if (isJugado()) {
+            return golesLocal.toString();
+        }
+
+        return NO_JUGADO;
     }
 }
