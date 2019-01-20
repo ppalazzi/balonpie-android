@@ -1,6 +1,8 @@
 package com.palazzisoft.ligabalonpie.dto;
 
-public class TipoJugador {
+import java.io.Serializable;
+
+public class TipoJugador implements Serializable {
 
     public static final int ARQUERO = 0;
     public static final int DEFENSOR = 1;

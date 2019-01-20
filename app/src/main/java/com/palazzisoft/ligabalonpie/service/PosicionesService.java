@@ -25,23 +25,23 @@ public class PosicionesService extends AsyncTask<Void, Void, List> {
     private static final String TAG = "EquiposEstadisticas";
 
     private final Resources resources;
-    private final Fixture fixture;
+    private final Integer torneoId;
 
-    public PosicionesService(final Resources resources, Fixture fixture) {
+    public PosicionesService(final Resources resources, Integer torneoId) {
         this.resources = resources;
-        this.fixture = fixture;
+        this.torneoId = torneoId;
     }
 
     @Override
     protected List doInBackground(Void... params) {
-        Log.i(TAG,  "Actualizando fixture número " + fixture.getId());
+        Log.i(TAG,  "Actualizando fixture número de torneo" + torneoId);
 
-        final String url = resources.getString(R.string.baseUrl).concat("/fixture/posiciones");
+        final String url = resources.getString(R.string.baseUrl).concat("/fixture/posiciones/{torneoId}");
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-        ResponseEntity<EquiposEstadisticas[]> response = restTemplate.getForEntity(url, EquiposEstadisticas[].class, fixture);
+        ResponseEntity<EquiposEstadisticas[]> response = restTemplate.getForEntity(url, EquiposEstadisticas[].class, torneoId);
 
         if (response.getStatusCode() != HttpStatus.OK) {
             Log.e(TAG, "Error al traer las posiciones del Torneo");

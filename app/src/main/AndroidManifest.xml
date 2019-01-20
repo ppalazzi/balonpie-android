@@ -40,7 +40,11 @@
         <activity android:name=".TorneoList" />
         <activity android:name=".CrearTorneoActivity" />
         <activity android:name=".ElegirEquipoActivity" />
-        <activity android:name=".DetallesTorneo"></activity>
+        <activity android:name=".DetallesTorneo" />
+        <activity
+            android:name=".TablaPosiciones"
+            android:label="@string/title_activity_tabla_posiciones"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

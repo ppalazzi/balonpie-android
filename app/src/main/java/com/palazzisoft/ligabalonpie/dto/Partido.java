@@ -2,8 +2,10 @@ package com.palazzisoft.ligabalonpie.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Partido {
+public class Partido implements Serializable{
 
     public static final String NO_JUGADO = "-";
     private Integer id;

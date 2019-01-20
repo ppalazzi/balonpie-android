@@ -2,9 +2,10 @@ package com.palazzisoft.ligabalonpie.dto;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Participante {
+public class Participante implements Serializable {
 
     @SerializedName("id")
     private Integer id;

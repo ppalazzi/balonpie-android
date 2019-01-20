@@ -23,6 +23,7 @@ import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Calendar;
@@ -114,6 +115,7 @@ public class SignUpActivity extends AppCompatActivity {
         try {
             executeTask();
         } catch (Exception e) {
+            this.nombre.setError("Hubo un error creando el Participante, intentelo nuevamente más tarde");
             Log.e(TAG, "Error al crear el Participante", e);
         }
     }
@@ -122,8 +124,8 @@ public class SignUpActivity extends AppCompatActivity {
         HttpRequestTask requestask = new HttpRequestTask(createParticipante());
         requestask.execute();
 
-        if (requestask.get() != null) {
-            Participante participante = requestask.get();
+        Participante participante = requestask.get();
+        if (participante != null) {
             saveParticipantePreferece(participante);
             Log.i(TAG, "Participante creado correctamente");
             goToDashboard();
@@ -133,7 +135,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void goToDashboard() {
-        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+        Intent intent = new Intent(getApplicationContext(), DashboardOptions.class);
         startActivityForResult(intent, REQUEST_SIGNUP);
     }
 
@@ -270,14 +272,16 @@ public class SignUpActivity extends AppCompatActivity {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-            ResponseEntity<Participante> response = restTemplate.postForEntity(url,  participante, Participante.class);
-
-            if (response.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
-                Toast.makeText(getBaseContext(), "Usuario Error al crear el Participante", Toast.LENGTH_LONG).show();
+            try {
+                ResponseEntity<Participante> response = restTemplate.postForEntity(url,  participante, Participante.class);
+                return response.getBody();
+            }
+            catch (HttpClientErrorException ex)   {
+                if (ex.getStatusCode() != HttpStatus.NOT_ACCEPTABLE) {
+                    throw ex;
+                }
                 return null;
             }
-
-            return response.getBody();
         }
 
         @Override

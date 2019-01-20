@@ -83,7 +83,7 @@ public class CrearTorneoActivity extends AppCompatActivity {
                 }
             }
         } catch (Exception e) {
-            Log.e(TAG, "Error al Validar nombre del Torneo");
+            Log.e(TAG, "Error al Validar nombre del Torneo", e);
         }
     }
 }

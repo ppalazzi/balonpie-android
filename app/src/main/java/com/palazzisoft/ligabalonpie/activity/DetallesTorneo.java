@@ -3,7 +3,6 @@ package com.palazzisoft.ligabalonpie.activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,8 +26,6 @@ import com.palazzisoft.ligabalonpie.service.PosicionesService;
 import java.util.List;
 import java.util.ListIterator;
 
-import static android.support.v7.widget.AppCompatDrawableManager.get;
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class DetallesTorneo extends AppCompatActivity {
@@ -229,15 +226,12 @@ public class DetallesTorneo extends AppCompatActivity {
 
     private void verPosiciones() {
         if (torneo.getFixture() != null) {
-            PosicionesService service = new PosicionesService(this.getResources(), torneo.getFixture());
-            service.execute();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("torneo", torneo);
 
-            try {
-                List posicionesEquipo = service.get();
-            }
-            catch (Exception e) {
-                showError();
-            }
+            Intent intent = new Intent(getApplicationContext(), TablaPosiciones.class);
+            intent.putExtra("bundle", bundle);
+            startActivity(intent);
         }
     }
 

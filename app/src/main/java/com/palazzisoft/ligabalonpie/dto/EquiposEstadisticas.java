@@ -7,6 +7,7 @@ public class EquiposEstadisticas {
     private int puntos;
     private int golesAFavor;
     private int golesRecibidos;
+    private int cantidadJugados;
 
     public Equipo getEquipo() {
         return equipo;
@@ -38,5 +39,13 @@ public class EquiposEstadisticas {
 
     public void setGolesRecibidos(int golesRecibidos) {
         this.golesRecibidos = golesRecibidos;
+    }
+
+    public int getCantidadJugados() {
+        return cantidadJugados;
+    }
+
+    public void setCantidadJugados(int cantidadJugados) {
+        this.cantidadJugados = cantidadJugados;
     }
 }

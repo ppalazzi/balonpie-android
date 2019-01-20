@@ -2,8 +2,10 @@ package com.palazzisoft.ligabalonpie.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Jugador {
+public class Jugador implements Serializable {
 
     private int id;
     private String nombre;

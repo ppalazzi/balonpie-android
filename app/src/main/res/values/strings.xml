@@ -44,6 +44,7 @@
     <string name="seleccionar_jugadores">Seleccionar Jugadores</string>
     <string name="presupuesto_vigente">Presupuesto Vigente</string>
 
+
     <!-- Elegir Jugadores Para torneo -->
     <string name="label_arquero">Arquero Titular</string>
     <string name="defensa_1_list_id">Defensa 1 Posición</string>
@@ -65,6 +66,14 @@
     <string name="fecha_anterior">Fecha Previa</string>
     <string name="fecha_siguiente">Fecha Siguiente</string>
     <string name="fecha_ver_posiciones">Tabla de Posiciones</string>
+
+
+    <!-- Tabla posiciones -->
+    <string name="posiciones_posicion">Posicion</string>
+    <string name="posiciones_equipo">Equipo</string>
+    <string name="posiciones_puntos">Puntos</string>
+    <string name="posiciones_golesAFavor">GF</string>
+    <string name="posiciones_golesEncontra">GR</string>
 
     <!-- Hints -->
     <string name="hint_password">Debe contener hasta 8 caracteres</string>
@@ -89,4 +98,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_tabla_posiciones">TablaPosiciones</string>
 </resources>

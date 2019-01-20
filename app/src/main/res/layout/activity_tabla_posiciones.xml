@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/posicoie_general"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="24dp"
+            android:paddingTop="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="@string/nombre_torneo" />
+
+                <TextView
+                    android:id="@+id/posiciones_nombre_torneo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginLeft="24dp"
+                    android:text="@string/nombre_torneo" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="24dp"
+                android:paddingTop="50dp">
+
+                <TextView
+                    android:id="@+id/pos1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:text="@string/posiciones_posicion"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/pos2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:text="@string/posiciones_equipo"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/pos3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:text="@string/posiciones_puntos"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/pos4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:text="@string/posiciones_golesAFavor"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/pos5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:text="@string/posiciones_golesEncontra"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="24dp"
+                android:paddingTop="50dp">
+
+                <TextView
+                    android:id="@+id/equ1_pos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/equ1_nom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"/>
+
+                <TextView
+                    android:id="@+id/equ1_gol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/equ1_gf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/equ1_gc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="2sp"
+                    android:paddingRight="2sp"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -24,6 +24,8 @@ import com.palazzisoft.ligabalonpie.preference.TorneoPreference;
 import com.palazzisoft.ligabalonpie.service.CrearTorneoService;
 import com.palazzisoft.ligabalonpie.service.JugadoresService;
 
+import org.springframework.util.Assert;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -59,7 +61,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
     private Spinner atacante2List;
     private Spinner atacante3List;
 
-    private List<Jugador> arquerosSelected  = new ArrayList<>();
+    private List<Jugador> arquerosSelected = new ArrayList<>();
     private List<Jugador> defensoresSelected = new ArrayList<>();
     private List<Jugador> mediocampistaSelected = new ArrayList<>();
     private List<Jugador> atacanteSelected = new ArrayList<>();
@@ -101,7 +103,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
         seleccionarJugadores();
     }
 
-    private void seleccionarJugadores(){
+    private void seleccionarJugadores() {
         seleccionarArqueroDefault();
         seleccionarDefensoresDefault();
         seleccionarMediocampistaDefault();
@@ -126,8 +128,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (atacante2List.getSelectedItemPosition() == position || atacante3List.getSelectedItemPosition() == position) {
                     atacante1List.setSelection(actualPosicionAtacante1);
-                }
-                else {
+                } else {
                     actualPosicionAtacante1 = position;
                 }
             }
@@ -143,8 +144,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (atacante1List.getSelectedItemPosition() == position || atacante3List.getSelectedItemPosition() == position) {
                     atacante2List.setSelection(actualPosicionAtacante2);
-                }
-                else {
+                } else {
                     actualPosicionAtacante2 = position;
                 }
             }
@@ -163,8 +163,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (atacante1List.getSelectedItemPosition() == position || atacante2List.getSelectedItemPosition() == position) {
                     atacante3List.setSelection(actualPosicionAtacante3);
-                }
-                else {
+                } else {
                     actualPosicionAtacante3 = position;
                 }
             }
@@ -198,8 +197,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (mediocampo2List.getSelectedItemPosition() == position || mediocampo3List.getSelectedItemPosition() == position) {
                     mediocampo1List.setSelection(actualPosicionMediocampo1);
-                }
-                else {
+                } else {
                     actualPosicionMediocampo1 = position;
                 }
             }
@@ -216,8 +214,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (mediocampo1List.getSelectedItemPosition() == position || mediocampo3List.getSelectedItemPosition() == position) {
                     mediocampo2List.setSelection(actualPosicionMediocampo2);
-                }
-                else {
+                } else {
                     actualPosicionMediocampo2 = position;
                 }
             }
@@ -235,8 +232,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (mediocampo1List.getSelectedItemPosition() == position || mediocampo2List.getSelectedItemPosition() == position) {
                     mediocampo3List.setSelection(actualPosicionMediocampo3);
-                }
-                else {
+                } else {
                     actualPosicionMediocampo3 = position;
                 }
             }
@@ -275,8 +271,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
                         || defensor3List.getSelectedItemPosition() == position
                         || defensor4List.getSelectedItemPosition() == position) {
                     defensor1List.setSelection(actualPosicionDefensa1);
-                }
-                else {
+                } else {
                     actualPosicionDefensa1 = position;
                 }
             }
@@ -295,8 +290,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
                         || defensor3List.getSelectedItemPosition() == position
                         || defensor4List.getSelectedItemPosition() == position) {
                     defensor2List.setSelection(actualPosicionDefensa2);
-                }
-                else {
+                } else {
                     actualPosicionDefensa2 = position;
                 }
             }
@@ -315,8 +309,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
                         || defensor2List.getSelectedItemPosition() == position
                         || defensor4List.getSelectedItemPosition() == position) {
                     defensor3List.setSelection(actualPosicionDefensa3);
-                }
-                else {
+                } else {
                     actualPosicionDefensa3 = position;
                 }
             }
@@ -335,8 +328,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
                         || defensor3List.getSelectedItemPosition() == position
                         || defensor2List.getSelectedItemPosition() == position) {
                     defensor4List.setSelection(actualPosicionDefensa4);
-                }
-                else {
+                } else {
                     actualPosicionDefensa4 = position;
                 }
             }
@@ -371,7 +363,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
             if (jugadores != null) {
                 return jugadores;
             }
-        } catch (Exception e ) {
+        } catch (Exception e) {
             Log.e(TAG, "Error al traer Jugadores", e);
         }
 
@@ -412,7 +404,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
         List<String> nombres = new ArrayList<>();
 
         Iterator<Jugador> it = jugadores.iterator();
-        while(it.hasNext()) {
+        while (it.hasNext()) {
             Jugador jugador = it.next();
             nombres.add(jugador.toString());
         }
@@ -420,29 +412,35 @@ public class ElegirEquipoActivity extends AppCompatActivity {
         return nombres;
     }
 
+
     private void guardarTorneo() {
-        Jugador arquero = this.arquerosSelected.get(arqueroList.getSelectedItemPosition());
-        Jugador defensa1 = this.defensoresSelected.get(defensor1List.getSelectedItemPosition());
-        Jugador defensa2 = this.defensoresSelected.get(defensor2List.getSelectedItemPosition());
-        Jugador defensa3 = this.defensoresSelected.get(defensor3List.getSelectedItemPosition());
-        Jugador defensa4 = this.defensoresSelected.get(defensor4List.getSelectedItemPosition());
-        Jugador mediocampo1 = this.mediocampistaSelected.get(mediocampo1List.getSelectedItemPosition());
-        Jugador mediocampo2 = this.mediocampistaSelected.get(mediocampo2List.getSelectedItemPosition());
-        Jugador mediocampo3 = this.mediocampistaSelected.get(mediocampo3List.getSelectedItemPosition());
-        Jugador atacante1 = this.atacanteSelected.get(atacante1List.getSelectedItemPosition());
-        Jugador atacante2 = this.atacanteSelected.get(atacante2List.getSelectedItemPosition());
-        Jugador atacante3 = this.atacanteSelected.get(atacante3List.getSelectedItemPosition());
+        try {
+            Jugador arquero = this.arquerosSelected.get(arqueroList.getSelectedItemPosition());
+            Jugador defensa1 = this.defensoresSelected.get(defensor1List.getSelectedItemPosition());
+            Jugador defensa2 = this.defensoresSelected.get(defensor2List.getSelectedItemPosition());
+            Jugador defensa3 = this.defensoresSelected.get(defensor3List.getSelectedItemPosition());
+            Jugador defensa4 = this.defensoresSelected.get(defensor4List.getSelectedItemPosition());
+            Jugador mediocampo1 = this.mediocampistaSelected.get(mediocampo1List.getSelectedItemPosition());
+            Jugador mediocampo2 = this.mediocampistaSelected.get(mediocampo2List.getSelectedItemPosition());
+            Jugador mediocampo3 = this.mediocampistaSelected.get(mediocampo3List.getSelectedItemPosition());
+            Jugador atacante1 = this.atacanteSelected.get(atacante1List.getSelectedItemPosition());
+            Jugador atacante2 = this.atacanteSelected.get(atacante2List.getSelectedItemPosition());
+            Jugador atacante3 = this.atacanteSelected.get(atacante3List.getSelectedItemPosition());
 
-        int valorTotal = arquero.getValor() + defensa1.getValor() + defensa2.getValor() + defensa3.getValor() +
-                defensa4.getValor() + mediocampo1.getValor() + mediocampo2.getValor() + mediocampo3.getValor() +
-                atacante1.getValor() + atacante2.getValor() + atacante3.getValor();
+            int valorTotal = arquero.getValor() + defensa1.getValor() + defensa2.getValor() + defensa3.getValor() +
+                    defensa4.getValor() + mediocampo1.getValor() + mediocampo2.getValor() + mediocampo3.getValor() +
+                    atacante1.getValor() + atacante2.getValor() + atacante3.getValor();
 
-        if (!isTorneoValid(valorTotal)) {
-            Equipo equipo = torneo.getEquipos().get(0);
-            equipo.addJugadores(arquero, defensa1, defensa2, defensa3, defensa4, mediocampo1, mediocampo2,
-                    mediocampo3, atacante1, atacante2, atacante3);
+            if (isTorneoValid(valorTotal)) {
+                Equipo equipo = torneo.getEquipos().get(0);
+                equipo.addJugadores(arquero, defensa1, defensa2, defensa3, defensa4, mediocampo1, mediocampo2,
+                        mediocampo3, atacante1, atacante2, atacante3);
 
-            guardarTorneoServiceCall(torneo);
+                guardarTorneoServiceCall(torneo);
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error guardando el Torneo", e);
+            nombreTorneoView.setError("Ocurrio un error al guardar un Torneo, por favor intentelo nuevamente más tarde");
         }
     }
 
@@ -456,8 +454,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
             if (torneoCreated != null) {
                 Log.i(TAG, "Torneo Creado correctamente");
                 goToMisTorneos();
-            }
-            else {
+            } else {
                 Log.e(TAG, "Hubo un Error al guardar el Torneo, intentelo nuevamente más tarde");
             }
         } catch (Exception e) {
@@ -467,10 +464,7 @@ public class ElegirEquipoActivity extends AppCompatActivity {
 
     private boolean isTorneoValid(int valorTotal) {
         if (valorTotal > this.presupuestoInicial) {
-            Toast toast1 =
-                    Toast.makeText(getApplicationContext(),
-                            "El presupuesto se excedió maestro " + valorTotal, Toast.LENGTH_SHORT);
-            toast1.show();
+            this.nombreTorneoView.setError("Torneo se ha excedido en el Presupuesto");
             return false;
         }
         return true;

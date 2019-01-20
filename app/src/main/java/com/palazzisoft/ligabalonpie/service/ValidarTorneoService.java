@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-
 public class ValidarTorneoService extends AsyncTask<Void, Void, Boolean> {
 
     private static final String TAG = "ValidarTorneoService";
@@ -33,13 +32,18 @@ public class ValidarTorneoService extends AsyncTask<Void, Void, Boolean> {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-        ResponseEntity<Boolean> response = restTemplate.getForEntity(url, Boolean.class, name);
+        try {
+            ResponseEntity<Boolean> response = restTemplate.getForEntity(url, Boolean.class, name);
 
-        if (!response.getStatusCode().equals(HttpStatus.OK)) {
-            Log.i(TAG, "Error al Validar el nombre del torneo");
-            return null;
+            if (!response.getStatusCode().equals(HttpStatus.OK)) {
+                Log.i(TAG, "Error al Validar el nombre del torneo");
+                return null;
+            }
+
+            return response.getBody();
         }
-
-        return response.getBody();
+        catch (Exception e) {
+            throw e;
+        }
     }
 }

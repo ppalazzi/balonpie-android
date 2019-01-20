@@ -21,6 +21,7 @@ import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
@@ -74,13 +75,19 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Ingresando...");
         progressDialog.show();
 
+
         Button button = (Button) findViewById(R.id.btn_login);
         button.setEnabled(false);
 
         try {
             executeTask();
-        } catch (ExecutionException  | InterruptedException e) {
+        } catch (Exception e) {
             Log.e(TAG, "Error al ingresar Participante", e);
+            EditText editText  = (EditText) findViewById(R.id.input_email);
+            editText.setError("El usuario no existe, Por Favor registrese");
+        }
+        finally {
+            progressDialog.dismiss();
         }
     }
 
@@ -93,15 +100,16 @@ public class LoginActivity extends AppCompatActivity {
         HttpRequestTask requestask = new HttpRequestTask(email,pass);
         requestask.execute();
 
-        if (requestask.get() != null) {
+        Participante participante = requestask.get();
+        if (participante != null) {
             Log.i(TAG, "Logueando");
-            Participante participante = requestask.get();
             saveParticipantePreferece(participante);
             Intent intent = new Intent(getApplicationContext(), DashboardOptions.class);
             startActivityForResult(intent, REQUEST_SIGNUP);
         }
         else {
-            Log.i(TAG, "Error al loguear al mono");
+            Log.i(TAG, "Error al loguear al Participante");
+            editText.setError("El usuario no existe, Por Favor registrese");
         }
     }
 
@@ -168,14 +176,19 @@ public class LoginActivity extends AppCompatActivity {
             variables.put("email", email);
             variables.put("password", password);
 
-            ResponseEntity<Participante> response = restTemplate.getForEntity(url, Participante.class, variables);
-
-            if (response.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
-                Toast.makeText(getBaseContext(), "Usuario Inválido", Toast.LENGTH_LONG).show();
+            try {
+                ResponseEntity<Participante> response = restTemplate.getForEntity(url, Participante.class, variables);
+                return response.getBody();
+            } catch (HttpClientErrorException ex)   {
+                if (ex.getStatusCode() != HttpStatus.NOT_FOUND) {
+                   Log.i("Usuario no encontrado", TAG);
+                }
                 return null;
             }
-
-            return response.getBody();
+            catch (Exception e) {
+                Log.e(TAG, "Ups algo salió mal al Loguear el Participante", e);
+                throw e;
+            }
         }
     }
 }
