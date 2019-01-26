@@ -74,6 +74,7 @@
     <string name="posiciones_puntos">Puntos</string>
     <string name="posiciones_golesAFavor">GF</string>
     <string name="posiciones_golesEncontra">GR</string>
+    <string name="tabla_titulo">Tabla de Posiciones</string>
 
     <!-- Hints -->
     <string name="hint_password">Debe contener hasta 8 caracteres</string>

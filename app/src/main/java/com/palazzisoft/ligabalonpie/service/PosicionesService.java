@@ -36,7 +36,7 @@ public class PosicionesService extends AsyncTask<Void, Void, List> {
     protected List doInBackground(Void... params) {
         Log.i(TAG,  "Actualizando fixture número de torneo" + torneoId);
 
-        final String url = resources.getString(R.string.baseUrl).concat("/fixture/posiciones/{torneoId}");
+        final String url = resources.getString(R.string.baseUrl).concat("fixture/posiciones/{torneoId}");
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());

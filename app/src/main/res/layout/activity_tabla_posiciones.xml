@@ -4,6 +4,112 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:id="@+id/tableRowTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/link_signup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="@string/tabla_titulo"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/posicion_titulo"
+                android:text="@string/posiciones_posicion"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/posicion_equipo"
+                android:text="@string/posiciones_equipo"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/posicion_puntos"
+                android:text="@string/posiciones_puntos"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/posicion_gf"
+                android:text="@string/posiciones_golesAFavor"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/posicion_gc"
+                android:text="@string/posiciones_golesEncontra"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <!-- Row 1 -->
+        <TableRow
+            android:layout_height="wrap_content"
+            android:id="@+id/tableRowRow1"
+            android:layout_width="match_parent">
+            <TextView
+                android:id="@+id/equ1_pos"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/equ1_nom"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/equ1_pun"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/equ1_gf"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/equ1_gc"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <!-- Row 2 -->
+        <TableRow
+            android:layout_height="wrap_content"
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent">
+            <TextView
+                android:id="@+id/equ2_pos"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/equ2_nom"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/equ2_pun"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/equ2_gf"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/equ2_gc"
+                android:textSize="16dip" />
+        </TableRow>
+    </TableLayout>
+
+    <!--
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -154,5 +260,5 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
+-->
 </RelativeLayout>
