@@ -29,7 +29,7 @@ public class JugarFechaService extends AsyncTask<Void, Void, Fecha> {
     protected Fecha doInBackground(Void... params) {
         Log.i(TAG,  "Actualizando Fecha número " + fecha.getNumero());
 
-        final String url = resources.getString(R.string.baseUrl).concat("/fecha/jugarFecha");
+        final String url = resources.getString(R.string.baseUrl).concat("fecha/jugarFecha");
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());

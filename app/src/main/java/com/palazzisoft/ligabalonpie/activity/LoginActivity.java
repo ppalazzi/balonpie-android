@@ -181,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
                 return response.getBody();
             } catch (HttpClientErrorException ex)   {
                 if (ex.getStatusCode() != HttpStatus.NOT_FOUND) {
-                   Log.i("Usuario no encontrado", TAG);
+                   Log.i(TAG, "Usuario no encontrado");
                 }
                 return null;
             }
