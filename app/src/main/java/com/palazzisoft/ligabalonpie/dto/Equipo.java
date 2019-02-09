@@ -54,4 +54,14 @@ public class Equipo implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public int calcularPresupuesto() {
+        int total = 0;
+
+        for (Jugador jugador : jugadores) {
+            total = total + jugador.getValor();
+        }
+
+        return total;
+    }
 }

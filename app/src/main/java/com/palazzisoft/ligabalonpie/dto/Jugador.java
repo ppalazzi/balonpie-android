@@ -100,6 +100,6 @@ public class Jugador implements Serializable {
 
     @Override
     public String toString() {
-        return this.nombre + " " + this.apellido + " " + " $ " + this.valor;
+        return this.nombre + " " + this.apellido + "\n" + " $ " + this.valor;
     }
 }

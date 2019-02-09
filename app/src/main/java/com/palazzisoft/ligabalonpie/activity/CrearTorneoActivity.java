@@ -11,6 +11,7 @@ import android.widget.EditText;
 import com.palazzisoft.ligabalonpie.dto.Equipo;
 import com.palazzisoft.ligabalonpie.dto.Participante;
 import com.palazzisoft.ligabalonpie.dto.Torneo;
+import com.palazzisoft.ligabalonpie.preference.EquipoPreferences;
 import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
 import com.palazzisoft.ligabalonpie.preference.TorneoPreference;
 import com.palazzisoft.ligabalonpie.service.ValidarTorneoService;
@@ -60,6 +61,9 @@ public class CrearTorneoActivity extends AppCompatActivity {
 
         TorneoPreference torneoPreference = new TorneoPreference(getApplicationContext());
         torneoPreference.saveTorneo(torneo);
+
+        EquipoPreferences equipoPreferences = new EquipoPreferences(getApplicationContext());
+        equipoPreferences.saveEquipo(equipo);
 
         Intent intent = new Intent(getApplicationContext(), ElegirEquipoActivity.class);
         startActivity(intent);

@@ -15,15 +15,12 @@ import android.widget.Toast;
 import com.palazzisoft.ligabalonpie.dto.Fecha;
 import com.palazzisoft.ligabalonpie.dto.Fixture;
 import com.palazzisoft.ligabalonpie.dto.Torneo;
-import com.palazzisoft.ligabalonpie.fragment.CambiarJugadorFragment;
 import com.palazzisoft.ligabalonpie.fragment.FechasFragment;
 import com.palazzisoft.ligabalonpie.preference.TorneoPreference;
 import com.palazzisoft.ligabalonpie.service.ComenzarTorneoService;
 import com.palazzisoft.ligabalonpie.service.DetalleTorneoService;
 import com.palazzisoft.ligabalonpie.service.JugarFechaService;
-import com.palazzisoft.ligabalonpie.service.PosicionesService;
 
-import java.util.List;
 import java.util.ListIterator;
 
 import static android.widget.Toast.LENGTH_SHORT;
@@ -136,7 +133,7 @@ public class DetallesTorneo extends AppCompatActivity {
                 showError();
             }
         } catch (Exception e) {
-            Log.e(TAG, "Error al traer los detalles del Torneo");
+            Log.e(TAG, "Error al traer los detalles del Torneo", e);
         }
     }
 
@@ -224,6 +221,11 @@ public class DetallesTorneo extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+        goToDashboard();
+    }
+
     private void verPosiciones() {
         if (torneo.getFixture() != null) {
             Bundle bundle = new Bundle();
@@ -237,18 +239,25 @@ public class DetallesTorneo extends AppCompatActivity {
 
     private void cambiarJugador() {
         if (torneo.getFixture().getFechas().get(0).getPartidos().get(0).isJugado()) {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-            CambiarJugadorFragment cambiarJugadorFragment = new CambiarJugadorFragment();
-
-            fragmentTransaction.add(R.id.fechas_container, cambiarJugadorFragment);
-            fragmentTransaction.commit();
+            Intent intent = new Intent(getApplicationContext(), CambiarJugadorActivity.class);
+            startActivity(intent);
         }
     }
 
+    private boolean fechaAnteriorJugada() {
+        if (fechaActualIndex == 0) {
+            return true;
+        }
+
+        return torneo.getFixture().getFechas().get(fechaActualIndex-1).getPartidos().get(0).isJugado();
+    }
+
+    private boolean esFechaJugada() {
+        return torneo.getFixture().getFechas().get(fechaActualIndex).getPartidos().get(0).isJugado();
+    }
+
     private void jugarFecha() {
-        if (torneo.getFixture().getFechas().get(fechaActualIndex).getPartidos().get(0).isJugado()) {
+        if (!fechaAnteriorJugada() || esFechaJugada()) {
             return;
         }
 

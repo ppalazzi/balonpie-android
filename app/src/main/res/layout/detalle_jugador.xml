@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_custom_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp"
+    android:orientation="vertical"
+    android:background="#91E897"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/detalle_jugadores_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="25sp"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/detalle_jugadores_habilidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="25sp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/detalle_jugadores_velocidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="25sp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/detalle_jugadores_remate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="25sp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/detalle_jugadores_fisico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="25sp"
+            android:layout_weight="1"
+            />
+        <Button
+            android:id="@+id/detalle_jugador_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/plantilla_cerrar" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

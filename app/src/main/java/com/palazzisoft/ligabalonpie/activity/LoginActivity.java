@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,14 +35,16 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final int REQUEST_SIGNUP = 0;
     private static final String TAG = "LoginActivity";
-
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Login");
+
         setContentView(R.layout.activity_login);
 
-        Button button = (Button) findViewById(R.id.btn_login);
+        button = (Button) findViewById(R.id.btn_login);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,14 +73,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
-                R.style.AppTheme_Dark_Dialog);
+                R.style.Theme_AppCompat_DayNight_Dialog_Alert);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Ingresando...");
         progressDialog.show();
 
-
-        Button button = (Button) findViewById(R.id.btn_login);
-        button.setEnabled(false);
 
         try {
             executeTask();
@@ -120,8 +120,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Login fallido", Toast.LENGTH_LONG).show();
-        Button button = (Button) findViewById(R.id.btn_login);
-        button.setEnabled(true);
     }
 
     public boolean validate() {
@@ -152,8 +150,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // disable going back to the MainActivity
-        moveTaskToBack(true);
+        // no hacer nada si apreta el boton back
     }
 
     private class HttpRequestTask extends AsyncTask<Void, Void, Participante> {
@@ -181,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
                 return response.getBody();
             } catch (HttpClientErrorException ex)   {
                 if (ex.getStatusCode() != HttpStatus.NOT_FOUND) {
-                   Log.i(TAG, "Usuario no encontrado");
+                   Log.e(TAG, "Usuario no encontrado", ex);
                 }
                 return null;
             }

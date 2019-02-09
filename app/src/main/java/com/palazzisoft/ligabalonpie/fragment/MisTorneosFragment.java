@@ -23,9 +23,12 @@ import com.palazzisoft.ligabalonpie.activity.DetallesTorneo;
 import com.palazzisoft.ligabalonpie.activity.ElegirEquipoActivity;
 import com.palazzisoft.ligabalonpie.activity.R;
 import com.palazzisoft.ligabalonpie.activity.TorneoList;
+import com.palazzisoft.ligabalonpie.dto.Equipo;
 import com.palazzisoft.ligabalonpie.dto.Participante;
 import com.palazzisoft.ligabalonpie.dto.Torneo;
+import com.palazzisoft.ligabalonpie.preference.EquipoPreferences;
 import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
+import com.palazzisoft.ligabalonpie.preference.TorneoPreference;
 import com.palazzisoft.ligabalonpie.service.RemoveTorneoService;
 import com.palazzisoft.ligabalonpie.service.TorneosService;
 
@@ -66,7 +69,7 @@ public class MisTorneosFragment extends Fragment {
             torneosView.setAdapter(simpleAdapter);
 
         } catch (Exception e) {
-            Log.e("Error al traer Torneos", TAG);
+            Log.e(TAG, "Error al traer Torneos");
         }
 
         return root;
@@ -103,9 +106,28 @@ public class MisTorneosFragment extends Fragment {
     private void clickOnTorneoDetails(int position) {
         Torneo torneoSelected = (Torneo) torneos.get(position);
 
+        TorneoPreference torneoPreference = new TorneoPreference(getContext().getApplicationContext());
+        torneoPreference.saveTorneo(torneoSelected);
+
+        EquipoPreferences equipoPreferences = new EquipoPreferences(getContext().getApplicationContext());
+        equipoPreferences.saveEquipo(traerEquipoDelTorneoYParticpante(torneoSelected));
+
         Intent intent = new Intent(getActivity().getApplicationContext(), DetallesTorneo.class);
         intent.putExtra("torneoId", torneoSelected.getId());
         startActivity(intent);
+    }
+
+    private Equipo traerEquipoDelTorneoYParticpante(Torneo torneo) {
+        ParticipantePreference participantePreference = new ParticipantePreference(getContext().getApplicationContext());
+        Participante participante = participantePreference.getParticipante();
+
+        for (Equipo equipo : torneo.getEquipos()) {
+            if (equipo.getParticipante().getId().equals(participante.getId())) {
+                return equipo;
+            }
+        }
+
+        return null;
     }
 
     private void clickOnRemoveImage(int position) {

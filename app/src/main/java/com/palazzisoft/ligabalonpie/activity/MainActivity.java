@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Participante participante = preferences.getParticipante();
 
         Intent intent = new Intent(this, LoginActivity.class);
-        if (participante.getId() != null) {
+        if (participante != null && participante.getId() != null) {
             intent = new Intent(this, DashboardOptions.class);
         }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="baseUrl">http://192.168.0.22:8089/</string>
-    <integer name="equipo.presupuesto.inicial">100000000</integer>
+    <integer name="equipo.presupuesto.inicial">1000000</integer>
     <integer name="equipo.puntos.inicial">10000</integer>
 </resources>

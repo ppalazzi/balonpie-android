@@ -12,12 +12,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.palazzisoft.ligabalonpie.dto.Participante;
+import com.palazzisoft.ligabalonpie.fragment.DatePickerFragment;
 import com.palazzisoft.ligabalonpie.preference.ParticipantePreference;
 
 import org.springframework.http.HttpStatus;
@@ -50,6 +52,8 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
 
+    private TextView pickerLabel;
+
     private int year;
     private int month;
     private int day;
@@ -60,10 +64,11 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Registro");
+
         setContentView(R.layout.activity_sign_up);
 
         iniciarViews();
-        setDatePicker();
         addSignUpButtonListener();
         addListenerOnLoginButton();
     }
@@ -94,10 +99,32 @@ public class SignUpActivity extends AppCompatActivity {
         this.apellido = (EditText) findViewById(R.id.input_lastname);
         this.email = (EditText) findViewById(R.id.input_email);
         this.password = (EditText) findViewById(R.id.input_password);
+        this.pickerLabel = (TextView) findViewById(R.id.picker_text);
+        this.pickerLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarCalendario();
+            }
+        });
+    }
+
+    private void mostrarCalendario() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int yearS, int monthS, int dayS) {
+                day = dayS;
+                month = monthS;
+                year = yearS;
+
+                final String selectedDate = day + " / " + (month+1) + " / " + year;
+                pickerLabel.setText(selectedDate);
+            }
+        });
+        newFragment.show(getFragmentManager(), "datePicker");
     }
 
     private void signup() {
-        Log.d("SignUpActivity", "Creando Participante");
+        Log.i(TAG, "Creando Participante");
 
         if (!validate()) {
             onSignupFailed();
@@ -105,7 +132,7 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         final ProgressDialog progressDialog = new ProgressDialog(SignUpActivity.this,
-                R.style.AppTheme_Dark_Dialog);
+                R.style.AppTheme);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Creando participante...");
         progressDialog.show();
@@ -118,6 +145,11 @@ public class SignUpActivity extends AppCompatActivity {
             this.nombre.setError("Hubo un error creando el Participante, intentelo nuevamente más tarde");
             Log.e(TAG, "Error al crear el Participante", e);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // no hacer nada si presiona el boton atras
     }
 
     private void executeTask() throws ExecutionException, InterruptedException {
@@ -171,6 +203,7 @@ public class SignUpActivity extends AppCompatActivity {
         participante.setPassword(passwordText);
         participante.setEmail(emailText);
 
+
         Calendar c = Calendar.getInstance();
         c.set(year, month-1, day);
         participante.setFechaNacimiento(c.getTime());
@@ -220,7 +253,6 @@ public class SignUpActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener datePickerListener
             = new DatePickerDialog.OnDateSetListener() {
 
-        // when dialog box is closed, below method will be called.
         public void onDateSet(DatePicker view, int selectedYear,
                               int selectedMonth, int selectedDay) {
             year = selectedYear;
@@ -238,24 +270,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
     };
 
-    private void setDatePicker() {
-        tvDisplayDate = (TextView) findViewById(R.id.tvDate);
-        dpResult = (DatePicker) findViewById(R.id.fechaNacimiento);
-
-        final Calendar c = Calendar.getInstance();
-        year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH);
-        day = c.get(Calendar.DAY_OF_MONTH);
-
-        // set current date into textview
-        tvDisplayDate.setText(new StringBuilder()
-                // Month is 0 based, just add 1
-                .append(day).append("-").append(month + 1).append("-")
-                .append(year).append(" "));
-
-        // set current date into datepicker
-        dpResult.init(year, month, day, null);
-    }
 
     private class HttpRequestTask extends AsyncTask<Void, Void, Participante> {
 

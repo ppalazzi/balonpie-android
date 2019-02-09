@@ -1,41 +1,39 @@
 <resources>
-
-    <!-- Base application theme. -->
+    <!--Tema para el formulario-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Estilos para Edit Texts-->
+        <item name="android:editTextStyle">@style/EditTextStyle</item>
+        <!--Estilos de ventana-->
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorAccent">#FC543D</item>
     </style>
 
-    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
-
-        <item name="android:windowBackground">@color/primary</item>
-
-        <item name="colorControlNormal">@color/iron</item>
-        <item name="colorControlActivated">@color/white</item>
-        <item name="colorControlHighlight">@color/white</item>
-        <item name="android:textColorHint">@color/iron</item>
-
-        <item name="colorButtonNormal">@color/primary_darker</item>
-        <!-- <item name="android:colorButtonNormal">@color/primary_darker</item> -->
+    <!--Estilos personalizados para los componentes del formulario-->
+    <style name="Header" parent="@android:style/Widget.Holo.Light.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@android:color/holo_blue_bright</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
 
-    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
-        <item name="colorAccent">@color/white</item>
-        <item name="android:textColorPrimary">@color/iron</item>
-        <item name="android:background">@color/primary</item>
+    <style name="Message" parent="@android:style/Widget.Holo.Light.TextView">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="Separator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@android:color/holo_blue_bright</item>
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="EditTextStyle" parent="@android:style/Widget.Holo.Light.EditText">
+        <item name="android:background">@drawable/rectangle</item>
+        <item name="android:padding">10dp</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

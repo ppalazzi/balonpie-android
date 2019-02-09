@@ -77,6 +77,17 @@
     <string name="tabla_titulo">Tabla de Posiciones</string>
     <string name="btn_volver">Volver</string>
 
+    <!-- Cambiar Jugador -->
+    <string name="plantilla_jugadores">Plantel del Equipo</string>
+    <string name="plantilla_presupuesto">Presupuesto</string>
+    <string name="plantilla_nombre_jugador">Nombre del Jugador</string>
+    <string name="plantilla_valor_jugador">Valor</string>
+    <string name="plantilla_accion">Acción</string>
+    <string name="plantilla_volver">Volver</string>
+    <string name="plantilla_cambiar">Cambiar</string>
+    <string name="plantilla_ver">Ver</string>
+    <string name="plantilla_cerrar">Cerrar</string>
+
     <!-- Hints -->
     <string name="hint_password">Debe contener hasta 8 caracteres</string>
 
