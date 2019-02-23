@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <!-- Fecha nueva -->
@@ -33,7 +33,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:text="@string/nombre_torneo" />
+                    android:text="@string/nombre_torneo"
+                    style="@style/Message"/>
 
                 <TextView
                     android:id="@+id/torneo_nuevo_nombre_torneo"
@@ -41,7 +42,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
                     android:layout_marginLeft="24dp"
-                    android:text="@string/nombre_torneo" />
+                    android:text="@string/nombre_torneo"
+                    style="@style/Message"/>
             </LinearLayout>
 
             <LinearLayout
@@ -57,6 +59,7 @@
                     android:layout_marginTop="24dp"
                     android:gravity="center_horizontal"
                     android:padding="12dp"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/comenzar_fecha" />
             </LinearLayout>
         </LinearLayout>
@@ -65,7 +68,7 @@
         <LinearLayout
             android:id="@+id/fecha_comenzada"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingRight="24dp"
@@ -79,22 +82,22 @@
                 android:orientation="horizontal"
                 android:paddingLeft="24dp"
                 android:paddingRight="24dp"
-                android:paddingTop="15dp">
-
+                android:paddingTop="15dp"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="@string/nombre_torneo" />
+                    android:text="@string/nombre_torneo"
+                    style="@style/Message"/>
 
                 <TextView
                     android:id="@+id/detalle_torneo_nombre_torneo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right|center_vertical"
                     android:layout_marginLeft="24dp"
-                    android:text="@string/nombre_torneo" />
+                    android:text="@string/nombre_torneo"
+                    style="@style/Message"/>
             </LinearLayout>
 
             <LinearLayout
@@ -102,36 +105,39 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="24dp"
                 android:paddingRight="24dp"
-                android:paddingTop="15dp">
+                android:paddingTop="15dp"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="@string/numero_fecha" />
+                    android:text="@string/numero_fecha"
+                    style="@style/Message"/>
 
                 <TextView
                     android:id="@+id/numero_fecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right|center_vertical"
-                    android:layout_marginLeft="24dp" />
+                    android:layout_marginLeft="24dp"
+                    style="@style/Message"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:layout_weight="20">
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/btn_cambiar_jugador"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
                     android:layout_marginTop="24dp"
                     android:gravity="center"
-                    android:text="@string/cambiar_jugador" />
+                    android:text="@string/cambiar_jugador"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/btn_jugar"
@@ -140,50 +146,50 @@
                     android:layout_marginBottom="24dp"
                     android:layout_marginTop="24dp"
                     android:gravity="center"
-                    android:text="@string/jugar_fecha" />
-            </LinearLayout>
+                    android:text="@string/jugar_fecha"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fechas_container">
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/posiciones_container"></RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="horizontal">
-
-                <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/btn_fecha_anterior"
+                <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginTop="24dp"
-                    android:gravity="center"
-                    android:text="@string/fecha_anterior" />
-
-                <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/btn_fecha_siguiente"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:layout_marginTop="24dp"
-                    android:gravity="center"
-                    android:text="@string/fecha_siguiente" />
+                    android:id="@+id/fechas_container">
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_fecha_anterior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:textAlignment="center"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/fecha_anterior"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_fecha_siguiente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:textAlignment="center"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/fecha_siguiente"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/btn_posiciones"
@@ -192,8 +198,19 @@
                     android:layout_marginBottom="24dp"
                     android:layout_marginTop="24dp"
                     android:gravity="center_horizontal"
-                    android:text="@string/fecha_ver_posiciones" />
+                    android:text="@string/fecha_ver_posiciones"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_volver"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/fecha_volver"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</RelativeLayout>

@@ -40,6 +40,8 @@ public class Profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("Mi Perfil");
+
         setContentView(R.layout.activity_profile);
 
         initializeViews();
@@ -79,7 +81,6 @@ public class Profile extends AppCompatActivity {
                 showDatePickerDialog();
             }
         });
-
         this.updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,10 +109,16 @@ public class Profile extends AppCompatActivity {
             actualizarParticipantePreferences(participanteACtualizado);
             goToDashboard();
         } catch (Exception e) {
-            Log.e(TAG, "Error al actualizar el Participante");
+            Log.e(TAG, "Error al actualizar el Participante", e);
+            this.email.setError("Ocurrió un error al actualizar el Participante");
         }
 
         Log.i(TAG, "Actualizado");
+    }
+
+    @Override
+    public void onBackPressed() {
+        goToDashboard();
     }
 
     private Participante prepareParticipanteToBePersisted() {

@@ -43,6 +43,7 @@ public class DetallesTorneo extends AppCompatActivity {
     private Button jugarFecha;
     private Button cambiarJugador;
     private Button tablaPosiciones;
+    private Button volver;
 
     private int torneoId;
     private Torneo torneo;
@@ -107,6 +108,13 @@ public class DetallesTorneo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 verPosiciones();
+            }
+        });
+        volver = (Button) findViewById(R.id.btn_volver);
+        volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToDashboard();
             }
         });
 
@@ -214,6 +222,8 @@ public class DetallesTorneo extends AppCompatActivity {
     private void refreshView() {
         fechaNueva.setVisibility(LinearLayout.GONE);
         fechaComenzada.setVisibility(LinearLayout.VISIBLE);
+        Intent intent = new Intent(getApplicationContext(), DetallesTorneo.class);
+        startActivity(intent);
     }
 
     private void goToDashboard() {

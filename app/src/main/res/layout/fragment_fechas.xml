@@ -1,283 +1,239 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.palazzisoft.ligabalonpie.fragment.FechasFragment">
 
-    <LinearLayout
+    <TableLayout
+        android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <!-- Primera fecha -->
-        <LinearLayout
-            android:id="@+id/fecha_nueva"
+        <TableRow
+            android:id="@+id/tableRowTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="24dp"
-            android:paddingTop="0dp"
-            android:layout_gravity="center"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
 
             <TextView
-                android:id="@+id/golLocValue"
-                android:layout_width="wrap_content"
+                android:id="@+id/link_signup"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="@string/fechas_totilo"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#607D8B">
+
+            <TextView
+                android:id="@+id/fechas_local"
+                android:layout_weight="1"
+                android:text="@string/fechas_local"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/fechas_local_gol"
+                android:layout_weight="1"
+                android:text="@string/fechas_local"
+                android:textSize="16dip" />
+
+
+            <TextView
+                android:id="@+id/fechas_local_label"
+                android:layout_weight="1"
+                android:text="@string/fechas_versus_label"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/fechas_visitante"
+                android:layout_weight="1"
+                android:text="@string/fechas_visitante"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/fechas_visitante_gol"
+                android:layout_weight="1"
+                android:text="@string/fechas_visitante"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <!-- Row 1 -->
+        <TableRow
+            android:layout_height="wrap_content"
+            android:id="@+id/tableRowRow1"
+            android:layout_weight="1"
+            android:layout_width="match_parent">
 
             <TextView
                 android:id="@+id/localEquipo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:layout_weight="1"
+                android:textSize="16dip" />
+
+            <TextView
+                android:id="@+id/golLocValue"
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/vs1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:text="VS"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/golVisValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:layout_weight="1"
+                android:textSize="16dip"
+                android:text="@string/fechas_versus_separator"/>
 
             <TextView
                 android:id="@+id/visitanteEquipo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
-        </LinearLayout>
-
-        <!-- segunda fecha -->
-        <LinearLayout
-            android:id="@+id/fecha_nueva2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="24dp"
-            android:paddingTop="0dp"
-            android:layout_gravity="center"
-            android:gravity="center">
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/golLocValue2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:id="@+id/golVisValue"
+                android:layout_weight="1"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <!-- Row 2 -->
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/localEquipo2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/vs12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:text="VS"
-                android:textSize="17sp" />
+                android:id="@+id/golLocValue2"
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/golVisValue2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:id="@+id/vs2"
+                android:text="@string/fechas_versus_separator"
+                android:layout_weight="1"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/visitanteEquipo2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
-        </LinearLayout>
-
-        <!-- tercera fecha -->
-        <LinearLayout
-            android:id="@+id/fecha_nueva3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="24dp"
-            android:paddingTop="0dp"
-            android:layout_gravity="center"
-            android:gravity="center">
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/golLocValue3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:id="@+id/golVisValue2"
+                android:layout_weight="1"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <!-- Row 3 -->
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/localEquipo3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/vs13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:text="VS"
-                android:textSize="17sp" />
+                android:id="@+id/golLocValue3"
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/golVisValue3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:id="@+id/vs3"
+                android:text="@string/fechas_versus_separator"
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/visitanteEquipo3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
-        </LinearLayout>
-
-        <!-- cuarta fecha -->
-        <LinearLayout
-            android:id="@+id/fecha_nueva4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="24dp"
-            android:paddingTop="0dp"
-            android:layout_gravity="center"
-            android:gravity="center">
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/golLocValue4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:id="@+id/golVisValue3"
+                android:layout_weight="1"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <!-- Row 4 -->
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/localEquipo4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/vs14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:text="VS"
-                android:textSize="17sp" />
+                android:id="@+id/golLocValue4"
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/golVisValue4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:id="@+id/vs4"
+                android:layout_weight="1"
+                android:text="@string/fechas_versus_separator"
+                android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/visitanteEquipo4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
-        </LinearLayout>
-
-        <!-- quinta fecha -->
-        <LinearLayout
-            android:id="@+id/fecha_nueva5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="24dp"
-            android:paddingTop="0dp"
-            android:layout_gravity="center"
-            android:gravity="center">
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/golLocValue5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:id="@+id/golVisValue4"
+                android:layout_weight="1"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <!-- Row 5 -->
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/localEquipo5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/vs15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:text="VS"
-                android:textSize="17sp" />
+                android:id="@+id/golLocValue5"
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
-                android:id="@+id/golVisValue5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
+                android:id="@+id/vs5"
+                android:text="@string/fechas_versus_separator"
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/visitanteEquipo5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="2sp"
-                android:paddingRight="2sp"
-                android:textSize="17sp" />
-        </LinearLayout>
-    </LinearLayout>
+                android:layout_weight="1"
+                android:textSize="16dip" />
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/golVisValue5"
+                android:layout_weight="1"
+                android:textSize="16dip" />
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

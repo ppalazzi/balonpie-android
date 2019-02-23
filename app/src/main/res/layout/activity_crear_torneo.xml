@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
         android:paddingTop="56dp">
 
-        <!--  Email Label -->
+        <ImageView android:src="@drawable/balonpie"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_weight="3"
+            android:layout_gravity="center_horizontal" />
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:layout_weight="2">
             <EditText android:id="@+id/nombre_torneo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:hint="Nombre del Torneo"
-                android:maxLength="30"/>
+                android:maxLength="30"
+                style="@style/EditTextStyle"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:layout_weight="2">
             <EditText android:id="@+id/nombre_equipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLength="30"
-                android:hint="Nombre del Equipo" />
+                android:hint="Nombre del Equipo"
+                style="@style/EditTextStyle"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
@@ -46,8 +56,10 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:text="Agregar Jugadores"/>
+            android:text="Agregar Jugadores"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
-</ScrollView>
+</RelativeLayout>

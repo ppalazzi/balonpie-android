@@ -36,6 +36,7 @@
                         android:layout_marginBottom="24dp"
                         android:layout_weight="1"
                         android:text="@string/plantilla_jugadores"
+                        style="@style/Message"
                         android:textSize="16dip" />
                 </LinearLayout>
 
@@ -50,6 +51,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="24dp"
+                        style="@style/Message"
                         android:layout_weight="1"
                         android:text="@string/plantilla_presupuesto"
                         android:textSize="16dip" />
@@ -60,6 +62,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="24dp"
                         android:layout_weight="1"
+                        style="@style/Message"
                         android:text="10.000"
                         android:textSize="16dip" />
                 </LinearLayout>
@@ -81,19 +84,22 @@
                 android:id="@+id/cambiar_jugador_posicion"
                 android:layout_weight="1"
                 android:text="@string/posiciones_posicion"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/cambiar_jugador_nombre"
                 android:layout_weight="1"
                 android:text="@string/plantilla_nombre_jugador"
-                android:textSize="16dip" />
+                android:textSize="16dip"
+                style="@style/Message"/>
 
             <TextView
                 android:id="@+id/cambiar_jugador_cambiar"
                 android:layout_weight="1"
                 android:text="@string/plantilla_accion"
-                android:textSize="16dip" />
+                android:textSize="16dip"
+                style="@style/Message"/>
         </TableRow>
 
         <!-- Jugador 1 -->
@@ -107,6 +113,7 @@
             <TextView
                 android:id="@+id/cambiar_jugador_posicion1"
                 android:layout_weight="1"
+                style="@style/Message"
                 android:text="1"
                 android:textSize="16dip" />
 
@@ -128,14 +135,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_ver" />
+                    android:text="@string/plantilla_ver"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
                     android:id="@+id/cambiar_jugador_cambiar1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_cambiar" />
+                    android:text="@string/plantilla_cambiar"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
             </LinearLayout>
 
         </TableRow>
@@ -152,6 +161,7 @@
                 android:id="@+id/cambiar_jugador_posicion2"
                 android:layout_weight="1"
                 android:text="2"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <Spinner
@@ -172,14 +182,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_ver" />
+                    android:text="@string/plantilla_ver"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
                     android:id="@+id/cambiar_jugador_cambiar2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_cambiar" />
+                    android:text="@string/plantilla_cambiar"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
             </LinearLayout>
         </TableRow>
 
@@ -194,6 +206,7 @@
             <TextView
                 android:id="@+id/cambiar_jugador_posicion3"
                 android:layout_weight="1"
+                style="@style/Message"
                 android:text="3"
                 android:textSize="16dip" />
 
@@ -215,14 +228,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_ver" />
+                    android:text="@string/plantilla_ver"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
                     android:id="@+id/cambiar_jugador_cambiar3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_cambiar" />
+                    android:text="@string/plantilla_cambiar"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
             </LinearLayout>
         </TableRow>
@@ -239,6 +254,7 @@
                 android:id="@+id/cambiar_jugador_posicion4"
                 android:layout_weight="1"
                 android:text="4"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <Spinner
@@ -259,14 +275,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_ver" />
+                    android:text="@string/plantilla_ver"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
                     android:id="@+id/cambiar_jugador_cambiar4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_cambiar" />
+                    android:text="@string/plantilla_cambiar"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
             </LinearLayout>
         </TableRow>
@@ -283,6 +301,7 @@
                 android:id="@+id/cambiar_jugador_posicion5"
                 android:layout_weight="1"
                 android:text="5"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <Spinner
@@ -303,14 +322,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_ver" />
+                    android:text="@string/plantilla_ver"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
                     android:id="@+id/cambiar_jugador_cambiar5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_cambiar" />
+                    android:text="@string/plantilla_cambiar"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
             </LinearLayout>
         </TableRow>
 
@@ -326,6 +347,7 @@
                 android:id="@+id/cambiar_jugador_posicion6"
                 android:layout_weight="1"
                 android:text="6"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <Spinner
@@ -346,14 +368,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_ver" />
+                    android:text="@string/plantilla_ver"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
                     android:id="@+id/cambiar_jugador_cambiar6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_cambiar" />
+                    android:text="@string/plantilla_cambiar"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
             </LinearLayout>
         </TableRow>
 
@@ -369,6 +393,7 @@
                 android:id="@+id/cambiar_jugador_posicion7"
                 android:layout_weight="1"
                 android:text="7"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <Spinner
@@ -389,14 +414,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_ver" />
+                    android:text="@string/plantilla_ver"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
                     android:id="@+id/cambiar_jugador_cambiar7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/plantilla_cambiar" />
+                    android:text="@string/plantilla_cambiar"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
 
             </LinearLayout>
         </TableRow>
@@ -412,6 +439,7 @@
             <TextView
                 android:id="@+id/cambiar_jugador_posicion8"
                 android:layout_weight="1"
+                style="@style/Message"
                 android:text="8"
                 android:textSize="16dip" />
 
@@ -433,6 +461,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/plantilla_ver" />
 
                 <Button
@@ -440,6 +469,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/plantilla_cambiar" />
             </LinearLayout>
         </TableRow>
@@ -456,6 +486,7 @@
                 android:id="@+id/cambiar_jugador_posicion9"
                 android:layout_weight="1"
                 android:text="9"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <Spinner
@@ -476,6 +507,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/plantilla_ver" />
 
                 <Button
@@ -483,6 +515,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/plantilla_cambiar" />
             </LinearLayout>
         </TableRow>
@@ -499,6 +532,7 @@
                 android:id="@+id/cambiar_jugador_posicion10"
                 android:layout_weight="1"
                 android:text="10"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <Spinner
@@ -519,6 +553,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/plantilla_ver" />
 
                 <Button
@@ -526,6 +561,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/plantilla_cambiar" />
             </LinearLayout>
         </TableRow>
@@ -542,6 +578,7 @@
                 android:id="@+id/cambiar_jugador_posicion11"
                 android:layout_weight="1"
                 android:text="11"
+                style="@style/Message"
                 android:textSize="16dip" />
 
             <Spinner
@@ -562,6 +599,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/plantilla_ver" />
 
                 <Button
@@ -569,6 +607,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/plantilla_cambiar" />
             </LinearLayout>
         </TableRow>
@@ -590,6 +629,7 @@
                     android:id="@+id/mensages"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/Message"
                     android:layout_weight="1"
                     android:textSize="16dip" />
 
@@ -601,6 +641,7 @@
                     android:layout_marginTop="24dp"
                     android:gravity="center_vertical"
                     android:padding="12dp"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/btn_volver" />
 
             </LinearLayout>

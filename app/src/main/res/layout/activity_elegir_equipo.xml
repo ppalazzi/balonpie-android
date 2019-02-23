@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <TableLayout
+        android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="24dp"
-        android:paddingTop="0dp">
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,18 +75,43 @@
                 android:inputType="textCapWords" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="35dp">
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#607D8B"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/cambiar_jugador_posicion"
+                android:layout_weight="1"
+                android:text="@string/posiciones_posicion"
+                style="@style/Message"
+                android:textSize="16dip" />
+
+
+            <TextView
+                android:id="@+id/jugador_jugador"
+                android:layout_weight="1"
+                android:text="Jugador + Valor"
+                style="@style/Message"
+                android:textSize="16dip" />
+        </TableRow>
+
+        <!-- Jugador 1 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="0dp">
+
+            <TextView
+                android:layout_weight="1"
                 android:text="@string/label_arquero"
-                android:gravity="left"/>
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -96,20 +119,22 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/arquero_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+        <!-- Jugador 2 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="5dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/defensa_1_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Defensor Izquierda"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -117,20 +142,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/defensa_1_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 3 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores3"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="5dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/defensa_2_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Defensor Centro Izquierda"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -138,20 +164,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/defensa_2_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 4 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores4"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="5dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/defensa_3_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Defensor Centro Derecha"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -159,20 +186,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/defensa_3_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 5 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores5"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="5dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/defensa_4_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Defensor Derecha"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -180,21 +208,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/defensa_4_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <!-- Mediocampo -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 6 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores6"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="15dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/mediocampo_1_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Mediocampista Izquiero"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -202,20 +230,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/mediocampo_1_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 7 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores7"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="15dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/mediocampo_2_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Mediocampista Central"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -223,20 +252,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/mediocampo_2_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 8 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores8"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="5dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/mediocampo_3_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Mediocampista Derecha"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -244,21 +274,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/mediocampo_3_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <!-- Atacantes -->
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 9 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores9"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="15dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/atacante_1_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Atacante Punta Izquierda"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -266,20 +296,21 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/atacante_1_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 10 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores10"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="5dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/atacante_2_list_id"
-                android:gravity="left"/>
+                android:layout_weight="1"
+                android:text="Atacante De Area"
+                style="@style/Message"
+                android:textSize="16dip" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -287,36 +318,71 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/atacante_2_list_id"></Spinner>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Jugador 10 -->
+        <TableRow
+            android:id="@+id/tableRowVAlores11"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="5dp">
+            android:layout_weight="1"
+            android:elevation="0dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/atacante_3_list_id"
-                android:gravity="left"/>
+        <TextView
+            android:layout_weight="1"
+            android:text="Atacante Punta Derecha"
+            style="@style/Message"
+            android:textSize="16dip" />
 
-            <Spinner
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/atacante_3_list_id"></Spinner>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRowVAlores1p"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:elevation="0dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:id="@+id/atacante_3_list_id"></Spinner>
-        </LinearLayout>
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_guardarTorneo"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:padding="12dp"
-            android:text="Guardar Torneo"/>
-    </LinearLayout>
-</ScrollView>
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_guardarTorneo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="Guardar Torneo"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_elegir_equipo_volver"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:text="@string/btn_volver" />
+            </LinearLayout>
+
+
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

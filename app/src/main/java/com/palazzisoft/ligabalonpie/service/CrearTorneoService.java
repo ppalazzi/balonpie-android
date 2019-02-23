@@ -33,8 +33,16 @@ public class CrearTorneoService extends AsyncTask<Void, Void, Object> {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-        ResponseEntity<Object> response = restTemplate.postForEntity(url, torneo, Object.class);
+        try {
+            ResponseEntity<Object> response = restTemplate.postForEntity(url, torneo, Object.class);
+            return response.getBody();
+        }
+        catch (Exception e) {
+            Log.e(TAG, "Error al Intentar Crear el Torneo");
+            return null;
+        }
 
+        /*
         if (response.getStatusCode() == HttpStatus.FORBIDDEN) {
             Log.e(TAG, response.getBody().toString());
             return null;
@@ -42,7 +50,6 @@ public class CrearTorneoService extends AsyncTask<Void, Void, Object> {
         else if (response.getStatusCode() != HttpStatus.OK) {
             Log.e(TAG, "Error al Intentar Crear el Torneo");
         }
-
-        return response.getBody();
+        */
     }
 }

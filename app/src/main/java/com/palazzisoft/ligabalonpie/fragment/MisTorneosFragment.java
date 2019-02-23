@@ -8,13 +8,16 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +38,8 @@ import com.palazzisoft.ligabalonpie.service.TorneosService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class MisTorneosFragment extends Fragment {
 
@@ -54,35 +59,45 @@ public class MisTorneosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        /*
         View root = inflater.inflate(R.layout.fragment_mis_torneos, container, false);
 
         ListView torneosView = (ListView) root.findViewById(R.id.torneos_list);
-        addListenerContext(torneosView);
 
         try {
-            String[] from = {"listview_name", "listview_image"};
-            int[] to = {R.id.listview_torneo_name, R.id.listview_eliminar_image};
+            String[] from = {"1","2", "3"};
+            int[] to = {R.id.torneo_icon, R.id.listview_torneo_name, R.id.listview_eliminar_image};
 
-            List<HashMap<String, String>> aList = buildHashMap(getTorneosNameList());
+            List<Map<String, String>> aList = buildHashMap(getTorneosNameList());
             SimpleAdapter simpleAdapter = new SimpleAdapter(getActivity().getBaseContext(), aList,
                     R.layout.custom_listview_mis_torneos, from, to);
             torneosView.setAdapter(simpleAdapter);
-
+            addListenerContext(torneosView);
         } catch (Exception e) {
             Log.e(TAG, "Error al traer Torneos");
         }
 
         return root;
+        */
+        return null;
     }
 
     private void addListenerContext(ListView torneosView) {
         torneosView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                LinearLayout linearLayoutParent = (LinearLayout) view;
+                RelativeLayout linearLayoutParent = (RelativeLayout) view;
                 LinearLayout linearLayoutChild = (LinearLayout) linearLayoutParent.getChildAt(0);
 
-                TextView textView = (TextView) linearLayoutChild.getChildAt(0);
+                ImageView image = (ImageView) linearLayoutChild.getChildAt(0);
+                image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        clickOnTorneoDetails(position);
+                    }
+                });
+
+                TextView textView = (TextView) linearLayoutChild.getChildAt(1);
                 textView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -90,10 +105,8 @@ public class MisTorneosFragment extends Fragment {
                     }
                 });
 
-                LinearLayout linearLayoutChild2 = (LinearLayout) linearLayoutChild.getChildAt(1);
-
-                ImageView imageView = (ImageView) linearLayoutChild2.getChildAt(0);
-                imageView.setOnClickListener(new View.OnClickListener() {
+                Button eliminar = (Button) linearLayoutChild.getChildAt(2);
+                eliminar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         clickOnRemoveImage(position);
@@ -174,13 +187,17 @@ public class MisTorneosFragment extends Fragment {
         }
     }
 
-    private List<HashMap<String, String>> buildHashMap(List<String> torneos) {
-        List<HashMap<String, String>> aList = new ArrayList<>();
+    private List<Map<String, String>> buildHashMap(List<String> torneos) {
+        List<Map<String, String>> aList = new ArrayList<>();
 
         for (String name : torneos) {
-            HashMap<String, String> hm = new HashMap<>();
-            hm.put("listview_name", name);
-            hm.put("listview_image", String.valueOf(R.drawable.eliminar));
+            Map<String, String> hm = new TreeMap<>();
+            hm.put("1", String.valueOf(R.drawable.torneo_lista));
+            hm.put("2", name);
+            hm.put("3", "");
+            //hm.put("3", String.valueOf(R.drawable.eliminar));
+           // hm.put("listview_eliminar", String.valueOf(R.drawable.eliminar));
+            //hm.put("listview_eliminar_image", String.valueOf(R.drawable.eliminar));
             aList.add(hm);
         }
 

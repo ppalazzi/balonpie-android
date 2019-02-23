@@ -37,13 +37,13 @@ public class TorneosService extends AsyncTask<Void, Void, List> {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-        ResponseEntity<Torneo[]> response = restTemplate.getForEntity(url, Torneo[].class, participanteId);
-
-        if (response.getStatusCode().equals(HttpStatus.NO_CONTENT)) {
-            Log.i(TAG, "Error al Obtener los torneos de un Participante");
+        try {
+            ResponseEntity<Torneo[]> response = restTemplate.getForEntity(url, Torneo[].class, participanteId);
+            return Arrays.asList(response.getBody());
+        }
+        catch (Exception e) {
+            Log.e(TAG, "Error al Obtener los torneos de un Participante", e);
             return null;
         }
-
-        return Arrays.asList(response.getBody());
     }
 }

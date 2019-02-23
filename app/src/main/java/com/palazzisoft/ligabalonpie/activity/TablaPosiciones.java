@@ -175,7 +175,7 @@ public class TablaPosiciones extends AppCompatActivity {
                 service.execute();
                 posicionesEquipo = service.get();
 
-                if (posicionesEquipo != null) {
+                if (posicionesEquipo != null && posicionesEquipo.size() > 0) {
                     mostrarEquipos(posicionesEquipo);
                 }
             } catch (Exception e) {

@@ -79,6 +79,8 @@ public class ElegirEquipoActivity extends AppCompatActivity {
     private int actualPosicionDefensa3;
     private int actualPosicionDefensa4;
 
+    private Button volver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,6 +179,14 @@ public class ElegirEquipoActivity extends AppCompatActivity {
         actualPosicionAtacante1 = 0;
         actualPosicionAtacante2 = 1;
         actualPosicionAtacante3 = 3;
+
+        volver = (Button) findViewById(R.id.btn_elegir_equipo_volver);
+        volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToCrearTorneo();
+            }
+        });
     }
 
     private void seleccionarMediocampistaDefault() {
@@ -472,6 +482,11 @@ public class ElegirEquipoActivity extends AppCompatActivity {
 
     private void goToMisTorneos() {
         Intent intent = new Intent(getApplicationContext(), TorneoList.class);
+        startActivity(intent);
+    }
+
+    private void goToCrearTorneo() {
+        Intent intent = new Intent(getApplicationContext(), CrearTorneoActivity.class);
         startActivity(intent);
     }
 }

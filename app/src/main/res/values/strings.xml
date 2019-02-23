@@ -31,6 +31,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="mi_perfil_fragment">Mi Perfil</string>
 
+    <!-- Listado torneos -->
+    <string name="torneo_list_eliminar">Eliminar</string>
+
     <!-- ActionBarDrawerToogle -->
     <string name="open_drawer">Abrir</string>
     <string name="close_drawer">Cerrar</string>
@@ -63,9 +66,15 @@
     <string name="numero_fecha">Número Fecha</string>
     <string name="cambiar_jugador">Cambiar Jugador</string>
     <string name="jugar_fecha">Jugar Fecha</string>
-    <string name="fecha_anterior">Fecha Previa</string>
-    <string name="fecha_siguiente">Fecha Siguiente</string>
+    <string name="fecha_anterior">&lt;&lt;</string>
+    <string name="fecha_siguiente">&gt;&gt;</string>
     <string name="fecha_ver_posiciones">Tabla de Posiciones</string>
+    <string name="fecha_volver">Volver</string>
+    <string name="fechas_totilo">Partidos de la Fecha</string>
+    <string name="fechas_local">Goles</string>
+    <string name="fechas_visitante">Visitante</string>
+    <string name="fechas_versus_label">Versus</string>
+    <string name="fechas_versus_separator">-</string>
 
 
     <!-- Tabla posiciones -->
