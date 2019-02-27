@@ -5,7 +5,7 @@
         <item name="android:editTextStyle">@style/EditTextStyle</item>
         <!--Estilos de ventana-->
         <item name="android:windowFullscreen">true</item>
-        <item name="colorAccent">#FC543D</item>
+        <item name="colorAccent">#4E9750</item>
     </style>
 
     <!--Estilos personalizados para los componentes del formulario-->

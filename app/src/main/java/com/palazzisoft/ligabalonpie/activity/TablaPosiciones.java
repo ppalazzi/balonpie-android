@@ -1,6 +1,7 @@
 package com.palazzisoft.ligabalonpie.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import com.palazzisoft.ligabalonpie.dto.EquiposEstadisticas;
 import com.palazzisoft.ligabalonpie.dto.Torneo;
+import com.palazzisoft.ligabalonpie.preference.TorneoPreference;
 import com.palazzisoft.ligabalonpie.service.PosicionesService;
 
 import java.util.Arrays;
@@ -85,6 +87,8 @@ public class TablaPosiciones extends AppCompatActivity {
     private TextView equipo10GolesFavor;
     private TextView equipo10GolesEnContra;
     private Button buttonVolver;
+
+    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,6 +169,8 @@ public class TablaPosiciones extends AppCompatActivity {
                 volverAFechas();
             }
         });
+
+        this.title = (TextView) findViewById(R.id.posiciones_title);
     }
 
     private void verPosiciones() {
@@ -187,8 +193,8 @@ public class TablaPosiciones extends AppCompatActivity {
     private void mostrarEquipos(List<EquiposEstadisticas> equipos) {
         List<TextView> posiciones = Arrays.asList(equipoPosicion1, equipoPosicion2, equipoPosicion3, equipoPosicion4,
                 equipoPosicion5, equipoPosicion6, equipoPosicion7, equipoPosicion8, equipoPosicion9, equipoPosicion10);
-        List<TextView> nombres = Arrays.asList(equipoNombre1, equipoNombre2, equipoNombre3, equipoNombre4,equipoNombre5,
-                equipoNombre6,equipoNombre7,equipoNombre8,equipoNombre9,equipoNombre10);
+        List<TextView> nombres = Arrays.asList(equipoNombre1, equipoNombre2, equipoNombre3, equipoNombre4, equipoNombre5,
+                equipoNombre6, equipoNombre7, equipoNombre8, equipoNombre9, equipoNombre10);
         List<TextView> puntos = Arrays.asList(equipoPuntos1, equipoPuntos2, equipoPuntos3, equipoPuntos4, equipoPuntos5,
                 equipoPuntos6, equipoPuntos7, equipoPuntos8, equipoPuntos9, equipoPuntos10);
         List<TextView> gf = Arrays.asList(equipo1GolesFavor, equipo2GolesFavor, equipo3GolesFavor, equipo4GolesFavor,
@@ -197,11 +203,25 @@ public class TablaPosiciones extends AppCompatActivity {
                 equipo5GolesEnContra, equipo6GolesEnContra, equipo7GolesEnContra, equipo8GolesEnContra, equipo9GolesEnContra, equipo10GolesEnContra);
 
         for (int i = 0; i < 10; i++) {
-            posiciones.get(i).setText(String.valueOf(i+1));
+            posiciones.get(i).setText(String.valueOf(i + 1));
             nombres.get(i).setText(equipos.get(i).getEquipo().getNombre());
             puntos.get(i).setText(String.valueOf(equipos.get(i).getPuntos()));
             gf.get(i).setText(String.valueOf(equipos.get(i).getGolesAFavor()));
             gc.get(i).setText(String.valueOf(equipos.get(i).getGolesRecibidos()));
+        }
+
+        TorneoPreference torneoPreference = new TorneoPreference(getApplicationContext());
+        Torneo torneo = torneoPreference.getTorneo();
+
+        // verificar si ya hay campeon
+        if (torneo.getFixture() != null && torneo.getFixture().estaTerminado()) {
+            this.title.setText("¡" + nombres.get(0).getText() + " Campeón!");
+            this.equipoPosicion1.setTextColor(Color.parseColor("#F41C11"));
+            this.equipoNombre1.setTextColor(Color.parseColor("#F41C11"));
+            this.equipoPuntos1.setTextColor(Color.parseColor("#F41C11"));
+            this.equipo1GolesEnContra.setTextColor(Color.parseColor("#F41C11"));
+            this.equipo1GolesFavor.setTextColor(Color.parseColor("#F41C11"));
+            this.title.setTextColor(Color.parseColor("#F41C11"));
         }
     }
 

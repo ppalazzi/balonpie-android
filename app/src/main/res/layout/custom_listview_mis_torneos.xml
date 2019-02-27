@@ -12,7 +12,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:id="@+id/torneo_icon"
-            android:src="@drawable/torneo_lista"
+            android:background="@drawable/torneo_en_juego"
             style="@style/EditTextStyle"/>
 
         <TextView

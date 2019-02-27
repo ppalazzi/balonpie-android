@@ -24,6 +24,7 @@ public class JugadoresService extends AsyncTask<Void, Void, List> {
     private final int budget;
     private final Resources resources;
 
+
     public JugadoresService(final Resources resources, final int type, final int budget) {
         this.resources = resources;
         this.type = type;

@@ -44,8 +44,13 @@
         <activity
             android:name=".TablaPosiciones"
             android:label="@string/title_activity_tabla_posiciones"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".CambiarJugadorActivity" android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CambiarJugadorActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ParticipanteAdmin" />
+        <activity android:name=".AdminDashboard" />
+        <activity android:name=".AdminJugador"></activity>
     </application>
 
 </manifest>

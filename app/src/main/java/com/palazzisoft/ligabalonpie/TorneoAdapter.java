@@ -85,6 +85,10 @@ public class TorneoAdapter extends BaseAdapter {
         });
 
         ImageView image = (ImageView)view.findViewById(R.id.torneo_icon);
+        if (torneo.getFixture() != null && torneo.getFixture().estaTerminado()) {
+            image.setBackgroundResource(R.drawable.torneo_lista);
+        }
+
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +97,7 @@ public class TorneoAdapter extends BaseAdapter {
         });
 
         Button button = (Button) view.findViewById(R.id.listview_eliminar_image);
-        button.setBackgroundColor(Color.parseColor("#FC543D"));
+        button.setBackgroundColor(Color.parseColor("#4E9750"));
         button.setTextColor(Color.parseColor("#FFFFFF"));
         button.setOnClickListener(new View.OnClickListener() {
             @Override

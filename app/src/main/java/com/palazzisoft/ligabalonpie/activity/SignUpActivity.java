@@ -1,18 +1,16 @@
 package com.palazzisoft.ligabalonpie.activity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,11 +27,8 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
-import static com.palazzisoft.ligabalonpie.activity.MainActivity.PREFERENCE;
 import static com.palazzisoft.ligabalonpie.activity.R.id.btn_signup;
 
 
@@ -137,13 +132,14 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog.setMessage("Creando participante...");
         progressDialog.show();
 
-        signup.setEnabled(false);
-
         try {
             executeTask();
         } catch (Exception e) {
             this.nombre.setError("Hubo un error creando el Participante, intentelo nuevamente más tarde");
             Log.e(TAG, "Error al crear el Participante", e);
+        }
+        finally {
+            progressDialog.dismiss();
         }
     }
 
@@ -162,6 +158,11 @@ public class SignUpActivity extends AppCompatActivity {
             Log.i(TAG, "Participante creado correctamente");
             goToDashboard();
         } else {
+            AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
+            dialogo.setTitle("Registro");
+            dialogo.setMessage("No se pudo crear el Participante, asegurese de usar un email distinto");
+            dialogo.setNeutralButton("Cerrar", null);
+            dialogo.show();
             Log.i(TAG, "Error al crear el Participante");
         }
     }
@@ -178,7 +179,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void onSignupFailed() {
         Toast.makeText(getBaseContext(), "No fue posible crear la cuenta", Toast.LENGTH_LONG).show();
-        signup.setEnabled(true);
     }
 
     private void addSignUpButtonListener() {

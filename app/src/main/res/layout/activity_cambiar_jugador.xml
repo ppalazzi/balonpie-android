@@ -28,16 +28,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/plantilla_plantilla"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="24dp"
-                        android:layout_weight="1"
-                        android:text="@string/plantilla_jugadores"
-                        style="@style/Message"
-                        android:textSize="16dip" />
+                    android:textSize="16dip" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -53,6 +44,8 @@
                         android:layout_marginBottom="24dp"
                         style="@style/Message"
                         android:layout_weight="1"
+                        android:textColor="#264301"
+                        android:textStyle="normal|bold"
                         android:text="@string/plantilla_presupuesto"
                         android:textSize="16dip" />
 
@@ -63,6 +56,8 @@
                         android:layout_marginBottom="24dp"
                         android:layout_weight="1"
                         style="@style/Message"
+                        android:textColor="#264301"
+                        android:textStyle="normal|bold"
                         android:text="10.000"
                         android:textSize="16dip" />
                 </LinearLayout>
@@ -77,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#607D8B"
+            android:background="#5c8a03"
             android:elevation="0dp">
 
             <TextView
@@ -85,6 +80,10 @@
                 android:layout_weight="1"
                 android:text="@string/posiciones_posicion"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
@@ -92,6 +91,10 @@
                 android:layout_weight="1"
                 android:text="@string/plantilla_nombre_jugador"
                 android:textSize="16dip"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 style="@style/Message"/>
 
             <TextView
@@ -99,6 +102,10 @@
                 android:layout_weight="1"
                 android:text="@string/plantilla_accion"
                 android:textSize="16dip"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 style="@style/Message"/>
         </TableRow>
 
@@ -108,6 +115,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:elevation="0dp">
 
             <TextView
@@ -155,6 +163,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -201,6 +210,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -248,6 +258,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -295,6 +306,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -341,6 +353,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:elevation="0dp">
 
             <TextView
@@ -387,6 +400,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:elevation="0dp">
 
             <TextView
@@ -434,6 +448,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:elevation="0dp">
 
             <TextView
@@ -480,6 +495,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -526,6 +542,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -572,6 +589,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -639,7 +657,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
                     android:layout_marginTop="24dp"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:padding="12dp"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/btn_volver" />

@@ -117,13 +117,13 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cambiar_jugador);
 
-        presupuestoInicial = getResources().getInteger(R.integer.equipo_presupuesto_inicial);
-
         TorneoPreference torneoPreference = new TorneoPreference(getApplicationContext());
         this.torneo = torneoPreference.getTorneo();
 
         EquipoPreferences equipoPreferences = new EquipoPreferences(getApplicationContext());
         this.equipo = equipoPreferences.getEquipo();
+        presupuestoInicial = getResources().getInteger(R.integer.equipo_presupuesto_inicial);
+
         this.jugadoresDeEquipo = equipo.getJugadores();
         Collections.sort(jugadoresDeEquipo, new Comparator<Jugador>() {
             @Override
@@ -158,7 +158,12 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.defensaList1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                defensaIndexSelected1 = position;
+                if (position != defensaIndexSelected2 && position != defensaIndexSelected3
+                        && position != defensaIndexSelected4) {
+                    defensaIndexSelected1 = position;
+                } else {
+                    defensaList1.setSelection(defensaIndexSelected1);
+                }
             }
 
             @Override
@@ -170,7 +175,12 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.defensaList2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                defensaIndexSelected2 = position;
+                if (position != defensaIndexSelected1 && position != defensaIndexSelected3 &&
+                        position != defensaIndexSelected4) {
+                    defensaIndexSelected2 = position;
+                } else {
+                    defensaList2.setSelection(defensaIndexSelected2);
+                }
             }
 
             @Override
@@ -182,7 +192,12 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.defensaList3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                defensaIndexSelected3 = position;
+                if (position != defensaIndexSelected1 && position != defensaIndexSelected2
+                        && position != defensaIndexSelected4) {
+                    defensaIndexSelected3 = position;
+                } else {
+                    defensaList3.setSelection(defensaIndexSelected3);
+                }
             }
 
             @Override
@@ -194,7 +209,12 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.defensaList4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                defensaIndexSelected4 = position;
+                if (position != defensaIndexSelected1 && position != defensaIndexSelected2
+                        && position != defensaIndexSelected3) {
+                    defensaIndexSelected4 = position;
+                } else {
+                    defensaList4.setSelection(defensaIndexSelected4);
+                }
             }
 
             @Override
@@ -206,7 +226,11 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.mediocampoList1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                medioIndexSelected1 = position;
+                if (position != medioIndexSelected2 && position != medioIndexSelected3) {
+                    medioIndexSelected1 = position;
+                } else {
+                    mediocampoList1.setSelection(medioIndexSelected1);
+                }
             }
 
             @Override
@@ -218,7 +242,11 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.mediocampoList2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                medioIndexSelected2 = position;
+                if (position != medioIndexSelected1 && position != medioIndexSelected3) {
+                    medioIndexSelected2 = position;
+                } else {
+                    mediocampoList2.setSelection(medioIndexSelected2);
+                }
             }
 
             @Override
@@ -230,7 +258,11 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.mediocampoList3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                medioIndexSelected3 = position;
+                if (position != medioIndexSelected2 && position != medioIndexSelected1) {
+                    medioIndexSelected3 = position;
+                } else {
+                    mediocampoList3.setSelection(medioIndexSelected3);
+                }
             }
 
             @Override
@@ -242,7 +274,11 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.atacanteList1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                atacanteIndexSelected1 = position;
+                if (position != atacanteIndexSelected2 && position != atacanteIndexSelected3) {
+                    atacanteIndexSelected1 = position;
+                } else {
+                    atacanteList1.setSelection(atacanteIndexSelected1);
+                }
             }
 
             @Override
@@ -254,7 +290,11 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.atacanteList2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                atacanteIndexSelected2 = position;
+                if (position != atacanteIndexSelected1 && position != atacanteIndexSelected3) {
+                    atacanteIndexSelected2 = position;
+                } else {
+                    atacanteList2.setSelection(atacanteIndexSelected2);
+                }
             }
 
             @Override
@@ -266,7 +306,11 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.atacanteList3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                atacanteIndexSelected3 = position;
+                if (position != atacanteIndexSelected1 && position != atacanteIndexSelected2) {
+                    atacanteIndexSelected3 = position;
+                } else {
+                    atacanteList3.setSelection(atacanteIndexSelected3);
+                }
             }
 
             @Override
@@ -278,77 +322,99 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.cambiar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(arqueroIndexSelected, jugadoresDeEquipo.get(0), ARQUERO);
+                if (arqueros.get(arqueroIndexSelected).getId() != jugadoresDeEquipo.get(0).getId()) {
+                    cambiarJugador(arqueroIndexSelected, jugadoresDeEquipo.get(0), ARQUERO);
+                }
             }
         });
         this.cambiar2 = (Button) findViewById(R.id.cambiar_jugador_cambiar2);
         this.cambiar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(defensaIndexSelected1, jugadoresDeEquipo.get(1), DEFENSOR);
+                if (defensores.get(defensaIndexSelected1).getId() != jugadoresDeEquipo.get(1).getId()) {
+                    cambiarJugador(defensaIndexSelected1, jugadoresDeEquipo.get(1), DEFENSOR);
+                }
             }
         });
         this.cambiar3 = (Button) findViewById(R.id.cambiar_jugador_cambiar3);
         this.cambiar3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(defensaIndexSelected2, jugadoresDeEquipo.get(2), DEFENSOR);
+                if (defensores.get(defensaIndexSelected2).getId() != jugadoresDeEquipo.get(2).getId()) {
+                    cambiarJugador(defensaIndexSelected2, jugadoresDeEquipo.get(2), DEFENSOR);
+                }
             }
         });
         this.cambiar4 = (Button) findViewById(R.id.cambiar_jugador_cambiar4);
         this.cambiar4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(defensaIndexSelected3, jugadoresDeEquipo.get(3), DEFENSOR);
+                if (defensores.get(defensaIndexSelected3).getId() != jugadoresDeEquipo.get(3).getId()) {
+                    cambiarJugador(defensaIndexSelected3, jugadoresDeEquipo.get(3), DEFENSOR);
+                }
             }
         });
         this.cambiar5 = (Button) findViewById(R.id.cambiar_jugador_cambiar5);
         this.cambiar5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(defensaIndexSelected4, jugadoresDeEquipo.get(4), DEFENSOR);
+                if (defensores.get(defensaIndexSelected4).getId() != jugadoresDeEquipo.get(4).getId()) {
+                    cambiarJugador(defensaIndexSelected4, jugadoresDeEquipo.get(4), DEFENSOR);
+                }
             }
         });
         this.cambiar6 = (Button) findViewById(R.id.cambiar_jugador_cambiar6);
         this.cambiar6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(medioIndexSelected1, jugadoresDeEquipo.get(5), MEDIOCAMPISTA);
+                if (mediocampistas.get(medioIndexSelected1).getId() != jugadoresDeEquipo.get(5).getId()) {
+                    cambiarJugador(medioIndexSelected1, jugadoresDeEquipo.get(5), MEDIOCAMPISTA);
+                }
             }
         });
         this.cambiar7 = (Button) findViewById(R.id.cambiar_jugador_cambiar7);
         this.cambiar7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(medioIndexSelected2, jugadoresDeEquipo.get(6), MEDIOCAMPISTA);
+                if (mediocampistas.get(medioIndexSelected2).getId() != jugadoresDeEquipo.get(6).getId()) {
+                    cambiarJugador(medioIndexSelected2, jugadoresDeEquipo.get(6), MEDIOCAMPISTA);
+                }
             }
         });
         this.cambiar8 = (Button) findViewById(R.id.cambiar_jugador_cambiar8);
         this.cambiar8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(medioIndexSelected3, jugadoresDeEquipo.get(7), MEDIOCAMPISTA);
+                if (mediocampistas.get(medioIndexSelected3).getId() != jugadoresDeEquipo.get(7).getId()) {
+                    cambiarJugador(medioIndexSelected3, jugadoresDeEquipo.get(7), MEDIOCAMPISTA);
+                }
             }
         });
         this.cambiar9 = (Button) findViewById(R.id.cambiar_jugador_cambiar9);
         this.cambiar9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(atacanteIndexSelected1, jugadoresDeEquipo.get(8), ATACANTE);
+                if (atacantes.get(atacanteIndexSelected1).getId() != jugadoresDeEquipo.get(8).getId()) {
+                    cambiarJugador(atacanteIndexSelected1, jugadoresDeEquipo.get(8), ATACANTE);
+                }
             }
         });
         this.cambiar10 = (Button) findViewById(R.id.cambiar_jugador_cambiar10);
         this.cambiar10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(atacanteIndexSelected2, jugadoresDeEquipo.get(9), ATACANTE);
+                if (atacantes.get(atacanteIndexSelected2).getId() != jugadoresDeEquipo.get(9).getId()) {
+                    cambiarJugador(atacanteIndexSelected2, jugadoresDeEquipo.get(9), ATACANTE);
+                }
             }
         });
         this.cambiar11 = (Button) findViewById(R.id.cambiar_jugador_cambiar11);
         this.cambiar11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cambiarJugador(atacanteIndexSelected3, jugadoresDeEquipo.get(10), ATACANTE);
+                if (atacantes.get(atacanteIndexSelected3).getId() != jugadoresDeEquipo.get(10).getId()) {
+                    cambiarJugador(atacanteIndexSelected3, jugadoresDeEquipo.get(10), ATACANTE);
+                }
             }
         });
         this.buttonVolver = (Button) findViewById(R.id.btn_cambiar_volver);
@@ -364,77 +430,77 @@ public class CambiarJugadorActivity extends AppCompatActivity {
         this.ver1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(0));
+                ver(arqueros.get(arqueroIndexSelected));
             }
         });
         this.ver2 = (Button) findViewById(R.id.cambiar_jugador_ver2);
         this.ver2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(1));
+                ver(defensores.get(defensaIndexSelected1));
             }
         });
         this.ver3 = (Button) findViewById(R.id.cambiar_jugador_ver3);
         this.ver3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(2));
+                ver(defensores.get(defensaIndexSelected2));
             }
         });
         this.ver4 = (Button) findViewById(R.id.cambiar_jugador_ver4);
         this.ver4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(3));
+                ver(defensores.get(defensaIndexSelected3));
             }
         });
         this.ver5 = (Button) findViewById(R.id.cambiar_jugador_ver5);
         this.ver5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(4));
+                ver(defensores.get(defensaIndexSelected4));
             }
         });
         this.ver6 = (Button) findViewById(R.id.cambiar_jugador_ver6);
         this.ver6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(5));
+                ver(mediocampistas.get(medioIndexSelected1));
             }
         });
         this.ver7 = (Button) findViewById(R.id.cambiar_jugador_ver7);
         this.ver7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(6));
+                ver(mediocampistas.get(medioIndexSelected2));
             }
         });
         this.ver8 = (Button) findViewById(R.id.cambiar_jugador_ver8);
         this.ver8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(7));
+                ver(mediocampistas.get(medioIndexSelected3));
             }
         });
         this.ver9 = (Button) findViewById(R.id.cambiar_jugador_ver9);
         this.ver9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(8));
+                ver(atacantes.get(atacanteIndexSelected1));
             }
         });
         this.ver10 = (Button) findViewById(R.id.cambiar_jugador_ver10);
         this.ver10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(9));
+                ver(atacantes.get(atacanteIndexSelected2));
             }
         });
         this.ver11 = (Button) findViewById(R.id.cambiar_jugador_ver11);
         this.ver11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ver(jugadoresDeEquipo.get(10));
+                ver(atacantes.get(atacanteIndexSelected3));
             }
         });
         this.relativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_cambiar_jugador);
@@ -442,7 +508,7 @@ public class CambiarJugadorActivity extends AppCompatActivity {
 
     private void ver(Jugador jugador) {
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View customView = layoutInflater.inflate(R.layout.detalle_jugador,null);
+        View customView = layoutInflater.inflate(R.layout.detalle_jugador, null);
 
         TextView texto = (TextView) customView.findViewById(R.id.detalle_jugadores_texto);
         texto.setText(String.valueOf(jugador.getNombre() + " " + jugador.getApellido()));
@@ -474,7 +540,7 @@ public class CambiarJugadorActivity extends AppCompatActivity {
     }
 
     private void calcularPresupuesto() {
-        this.presupuesto.setText(String.valueOf(equipo.calcularPresupuesto()));
+        this.presupuesto.setText(String.valueOf(presupuestoInicial - equipo.calcularPresupuesto()));
     }
 
     private void mostrarMensageConfirmacion(final Jugador nuevo, final Jugador original) {
@@ -508,43 +574,44 @@ public class CambiarJugadorActivity extends AppCompatActivity {
                     mostrarMensageConfirmacion(atacanteSelected, original);
                     break;
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             this.mensages.setError("Error al comprar Jugador, intentelo nuevamente más tarde");
         }
     }
 
     private void ejecutarServicioDeCompra(Jugador jugadorNuevo, Jugador original) {
         if (esCompraValida(jugadorNuevo, original)) {
-            llamarAlServicioCammbiarJugador(jugadorNuevo.getId(), original.getId());
-            jugadoresDeEquipo.set(jugadoresDeEquipo.indexOf(original), jugadorNuevo);
-        }
-        else {
-            this.mensages.setError("No tiene suficiente presupuesto para comprar el Jugador");
+            llamarAlServicioCammbiarJugador(original, jugadorNuevo);
+        } else {
+            new AlertDialog.Builder(this)
+                    .setMessage("Su presupuesto no le permite comprar al Jugador " + jugadorNuevo.getNombre() + " " + jugadorNuevo.getApellido())
+                    .setTitle("Presupuesto no válido").setNeutralButton("Cerrar", null).setCancelable(true).show();
             Log.i(TAG, "El Presupuesto no permite comprar al jugador " + jugadorNuevo.getId());
         }
     }
 
-    private void llamarAlServicioCammbiarJugador(Integer nuevo, Integer original) {
+    private void llamarAlServicioCammbiarJugador(Jugador original, Jugador jugadorNuevo) {
         try {
-            CambiarJugadoresService service = new CambiarJugadoresService(getResources(), equipo.getId(), original, nuevo);
+            CambiarJugadoresService service =
+                    new CambiarJugadoresService(getResources(), equipo.getId(), original.getId(), jugadorNuevo.getId());
             service.execute();
 
             Equipo equipo = service.get();
 
             EquipoPreferences equipoPreferences = new EquipoPreferences(getApplicationContext());
             equipoPreferences.saveEquipo(equipo);
-        }
-        catch (Exception e) {
-            Log.e(TAG, "Ocurrió un error comprando el jugador " + nuevo + " por " + original , e);
+
+            jugadoresDeEquipo.set(jugadoresDeEquipo.indexOf(original), jugadorNuevo);
+            this.presupuesto.setText(String.valueOf(presupuestoInicial - equipo.calcularPresupuesto()));
+        } catch (Exception e) {
+            Log.e(TAG, "Ocurrió un error comprando el jugador " + jugadorNuevo.getId() + " por " + original, e);
             throw new IllegalArgumentException(e.getMessage());
         }
-
     }
 
     private boolean esCompraValida(Jugador jugadorSelected, Jugador removido) {
         int presupuestoDeEquipo = equipo.calcularPresupuesto();
-        return ( ( (presupuestoDeEquipo - removido.getValor()) + jugadorSelected.getValor() ) <= presupuestoInicial);
+        return (((presupuestoDeEquipo - removido.getValor()) + jugadorSelected.getValor()) <= presupuestoInicial);
     }
 
     private void iniciarJugadores() {

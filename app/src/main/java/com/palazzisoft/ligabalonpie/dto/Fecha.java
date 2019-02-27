@@ -35,4 +35,13 @@ public class Fecha implements Serializable{
     public void setPartidos(List<Partido> partidos) {
         this.partidos = partidos;
     }
+
+    public boolean estaJugada() {
+        boolean estaJugada = true;
+        for (Partido partido : partidos) {
+            estaJugada = estaJugada && partido.isJugado();
+        }
+
+        return estaJugada;
+    }
 }

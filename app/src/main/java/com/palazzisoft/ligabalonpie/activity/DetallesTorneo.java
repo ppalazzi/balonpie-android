@@ -34,7 +34,6 @@ public class DetallesTorneo extends AppCompatActivity {
     private TextView nombreTorneoSinComenzar;
     private Button iniciarTorneoButton;
 
-    private TextView detalle_torneo_nombre_torneo;
     private TextView numero_fecha;
 
     private Button botonSiguiente;
@@ -65,7 +64,7 @@ public class DetallesTorneo extends AppCompatActivity {
 
         fechaNueva = (LinearLayout) findViewById(R.id.fecha_nueva);
         fechaComenzada = (LinearLayout) findViewById(R.id.fecha_comenzada);
-        nombreTorneoSinComenzar = (TextView) findViewById(R.id.torneo_nuevo_nombre_torneo);
+        //nombreTorneoSinComenzar = (TextView) findViewById(R.id.torneo_nuevo_nombre_torneo);
         iniciarTorneoButton = (Button) findViewById(R.id.btn_comenzar_fecha);
         iniciarTorneoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +72,7 @@ public class DetallesTorneo extends AppCompatActivity {
                 iniciarTorneo();
             }
         });
-        detalle_torneo_nombre_torneo = (TextView) findViewById(R.id.detalle_torneo_nombre_torneo);
+        //detalle_torneo_nombre_torneo = (TextView) findViewById(R.id.detalle_torneo_nombre_torneo);
         numero_fecha = (TextView) findViewById(R.id.numero_fecha);
         botonSiguiente = (Button) findViewById(R.id.btn_fecha_siguiente);
         botonSiguiente.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +145,7 @@ public class DetallesTorneo extends AppCompatActivity {
     }
 
     private void cargarDetallesDeTorneoComenzado(Torneo torneo) {
-        this.detalle_torneo_nombre_torneo.setText(torneo.getDescripcion());
+        //this.detalle_torneo_nombre_torneo.setText(torneo.getDescripcion());
         this.numero_fecha.setText(torneo.getFixture().getFechas().get(0).getNumero().toString());
         cargarDatosFecha(torneo, true);
     }
@@ -223,6 +222,7 @@ public class DetallesTorneo extends AppCompatActivity {
         fechaNueva.setVisibility(LinearLayout.GONE);
         fechaComenzada.setVisibility(LinearLayout.VISIBLE);
         Intent intent = new Intent(getApplicationContext(), DetallesTorneo.class);
+        intent.putExtra("torneoId", torneo.getId());
         startActivity(intent);
     }
 

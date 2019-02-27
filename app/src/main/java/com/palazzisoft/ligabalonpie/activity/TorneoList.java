@@ -132,7 +132,7 @@ public class TorneoList extends AppCompatActivity {
             Torneo torneoNew = removeTorneoService.get();
 
             if (torneoNew != null) {
-                Intent intent = new Intent(getApplicationContext(), TorneoList.class);
+                Intent intent = new Intent(getApplicationContext(), DashboardOptions.class);
                 startActivity(intent);
             } else {
                 Toast toast1 =
@@ -212,5 +212,11 @@ public class TorneoList extends AppCompatActivity {
         }
 
         return nombres;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), DashboardOptions.class);
+        startActivity(intent);
     }
 }

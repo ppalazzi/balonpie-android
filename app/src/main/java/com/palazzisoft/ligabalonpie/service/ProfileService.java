@@ -33,13 +33,13 @@ public class ProfileService extends AsyncTask<Void, Void, Participante> {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-        ResponseEntity<Participante> response = restTemplate.postForEntity(url,  participante, Participante.class);
-
-        if (response.getStatusCode().equals(HttpStatus.NOT_ACCEPTABLE)) {
+        try {
+            ResponseEntity<Participante> response = restTemplate.postForEntity(url,  participante, Participante.class);
+            return response.getBody();
+        }
+        catch (Exception e) {
             Log.i(TAG, "Error al actualizar Participante con id " + participante.getId());
             return null;
         }
-
-        return response.getBody();
     }
 }

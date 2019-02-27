@@ -26,4 +26,13 @@ public class Fixture implements Serializable {
     public void setFechas(List<Fecha> fechas) {
         this.fechas = fechas;
     }
+
+    public boolean estaTerminado() {
+        boolean terminado = true;
+        for (Fecha fecha : getFechas()) {
+            terminado = terminado && fecha.estaJugada();
+        }
+
+        return terminado;
+    }
 }

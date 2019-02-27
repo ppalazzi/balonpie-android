@@ -17,11 +17,14 @@
             android:gravity="center_horizontal">
 
             <TextView
-                android:id="@+id/link_signup"
+                android:id="@+id/posiciones_title"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:textColor="#264301"
+                android:textStyle="normal|bold"
                 style="@style/Message"
                 android:text="@string/tabla_titulo"
                 android:textSize="16dip" />
@@ -32,13 +35,17 @@
             android:id="@+id/tableRow1"
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:background="#607D8B">
+            android:background="#82b21e">
 
             <TextView
                 android:id="@+id/posicion_titulo"
                 android:text="@string/posiciones_posicion"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
@@ -46,6 +53,10 @@
                 android:text="@string/posiciones_equipo"
                 style="@style/Message"
                 android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
@@ -53,6 +64,10 @@
                 android:text="@string/posiciones_puntos"
                 style="@style/Message"
                 android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
@@ -60,6 +75,10 @@
                 android:text="@string/posiciones_golesAFavor"
                 style="@style/Message"
                 android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
@@ -67,6 +86,10 @@
                 android:text="@string/posiciones_golesEncontra"
                 style="@style/Message"
                 android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -75,35 +98,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRowRow1"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ1_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ1_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ1_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ1_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ1_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -112,35 +156,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow2"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ2_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ2_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ2_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ2_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ2_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -149,35 +214,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow3"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ3_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ3_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ3_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ3_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ3_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -186,35 +272,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow4"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ4_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ4_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ4_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ4_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ4_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -223,35 +330,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow5"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ5_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ5_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ5_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ5_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ5_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -260,35 +388,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow6"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ6_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ6_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ6_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ6_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ6_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -297,35 +446,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow7"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ7_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ7_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ7_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ7_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ7_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -334,35 +504,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow8"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ8_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ8_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ8_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ8_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ8_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -371,35 +562,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow9"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ9_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ9_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ9_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ9_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ9_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -408,35 +620,56 @@
             android:layout_height="wrap_content"
             android:id="@+id/tableRow10"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:layout_width="match_parent">
             <TextView
                 android:id="@+id/equ10_pos"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ10_nom"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ10_pun"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ10_gf"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
 
             <TextView
                 android:id="@+id/equ10_gc"
                 android:layout_weight="1"
                 style="@style/Message"
+                android:textStyle="normal|bold"
+                android:textColor="#264301"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 android:textSize="16dip" />
         </TableRow>
 
@@ -460,8 +693,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
                     android:layout_marginTop="24dp"
-                    android:gravity="center_vertical"
-                    android:padding="12dp"
+                    android:gravity="center"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:text="@string/btn_volver" />
 

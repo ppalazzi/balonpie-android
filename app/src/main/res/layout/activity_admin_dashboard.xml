@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="56dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:layout_weight="1"
+            android:paddingTop="56dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="56dp">
+
+            <Button
+                android:id="@+id/botonParticipante"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Administrar Participante"
+                android:textAlignment="center"
+                android:layout_weight="3"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+
+            <Button
+                android:id="@+id/botonJugador"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Administrar Jugadores"
+                android:textAlignment="center"
+                android:layout_weight="3"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+
+            <Button
+                android:id="@+id/adminSalir"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Salir"
+                android:textAlignment="center"
+                android:layout_weight="3"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:layout_weight="1"
+            android:paddingRight="24dp"
+            android:paddingTop="56dp"/>
+     </LinearLayout>
+
+
+</RelativeLayout>
