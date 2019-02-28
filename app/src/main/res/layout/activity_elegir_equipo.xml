@@ -80,13 +80,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#607D8B"
+            android:background="#5c8a03"
             android:elevation="0dp">
 
             <TextView
                 android:id="@+id/cambiar_jugador_posicion"
                 android:layout_weight="1"
                 android:text="@string/posiciones_posicion"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 style="@style/Message"
                 android:textSize="16dip" />
 
@@ -95,6 +99,10 @@
                 android:id="@+id/jugador_jugador"
                 android:layout_weight="1"
                 android:text="Jugador + Valor"
+                android:textStyle="normal|bold"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"
                 style="@style/Message"
                 android:textSize="16dip" />
         </TableRow>
@@ -105,6 +113,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:elevation="0dp">
 
             <TextView
@@ -128,6 +137,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -150,6 +160,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -172,6 +183,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -194,6 +206,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -216,6 +229,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:elevation="0dp">
 
             <TextView
@@ -238,6 +252,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:elevation="0dp">
 
             <TextView
@@ -260,6 +275,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d3e3b6"
             android:elevation="0dp">
 
             <TextView
@@ -282,6 +298,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -304,6 +321,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
             <TextView
@@ -326,6 +344,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#d6f58e"
             android:elevation="0dp">
 
         <TextView

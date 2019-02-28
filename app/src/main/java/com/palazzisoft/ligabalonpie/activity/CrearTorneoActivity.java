@@ -90,4 +90,10 @@ public class CrearTorneoActivity extends AppCompatActivity {
             Log.e(TAG, "Error al Validar nombre del Torneo", e);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, DashboardOptions.class);
+        startActivity(intent);
+    }
 }

@@ -155,10 +155,17 @@ public class AdminJugador extends AppCompatActivity {
                 dialogo.setMessage("Jugador actualizado correctamente");
                 dialogo.setNeutralButton("Cerrar", null);
                 dialogo.show();
+
+                refreshView();
             }
         }catch (Exception e) {
             Log.e(TAG, "Error actualizando Participante", e);
         }
+    }
+
+    private void refreshView() {
+        Intent intent = new Intent(getApplicationContext(), AdminJugador.class);
+        startActivity(intent);
     }
 
     private Jugador actualizarJugador(Jugador original) {
@@ -229,6 +236,7 @@ public class AdminJugador extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        goToAdmins();
     }
 
     private void goToAdmins() {
